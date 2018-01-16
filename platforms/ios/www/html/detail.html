@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>详情</title>
+    <meta charset="UTF-8"/>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        //获得第一个参数值
+        function getParam() {
+            // 截取掉问号之前的
+            var arrSource = unescape(this.location.search);
+            var strings = arrSource.split("=");
+            return strings[1];
+        }
+        function search() {
+            var id = getParam();
+            var req_data = {
+                "id":id
+            };
+            $.ajax({
+                url: 'http://192.168.2.120:7087/app/userDetail',
+                // url: 'http://122.226.221.26:7087/app/detail',
+                type: "POST",
+                data: req_data,
+                dataType: "jsonp", //返回JSONP格式的数据，此值固定
+                jsonp: "callback", //回调函数的名字，此值固定
+                timeout: 30000,
+                success: function (data) {
+                    if (data.result==='success'){
+                        $("#username").val(data.data.username);
+                        $("#password").val(data.data.password);
+                        $("#phone").val(data.data.phone);
+                        $("#mail").val(data.data.mail);
+                        if (data.data.gender===1){
+                            $("#gender").val("男");
+                        }else  if (data.data.gender===2){
+                            $("#gender").val("女");
+                        }else  {
+                            $("#gender").val("未知");
+                        }
+                        $("#address").val(data.data.address);
+                    }else {
+                        alert(data.result);
+                    }
+                },
+                error: function () {
+                    alert("请求失败");
+                }
+            });
+        }
+    </script>
+    <!-- 引入两个微信端页面适配 -->
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        a :hover {
+            cursor: pointer;
+        }
+
+        .Supplier-header {
+            width: 100%;
+            height: 50px;
+            background: #F2F6F9;
+            text-align: center;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .Supplier-header a {
+            font-size: 20px;
+            display: inline-block;
+            font-weight: bold;
+            position: absolute;
+            top: 0.5em;
+            left: 1em;
+        }
+
+        .Supplier-header p {
+            margin: 0;
+            padding: 0;
+            height: 50px;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .Supplier-right {
+            width: 97%;
+            margin: 0 auto;
+        }
+
+        .Supplier-mc {
+            width: 100%;
+            margin: 7px 0 0;
+        }
+
+        .Supplier-mc dt {
+            width: 100%;
+        }
+
+        .Supplier-mc dd {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .Supplier-mc input {
+            width: 100%;
+            height: 30px;
+        }
+
+        .Supplier-mc span {
+            color: red;
+        }
+
+        .Supplier-footer a {
+            display: inline-block;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            height: 30px;
+            line-height: 30px;
+        }
+
+    </style>
+
+</head>
+<body onload="search()">
+<header class="Supplier-header">
+    <a href="#">首页</a>
+    <p>基本信息</p>
+</header>
+<div class="Supplier-right">
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>用户名：</dt>
+        <dd>
+            <input id="username" type="text" name="predictDate" />
+        </dd>
+    </dl>
+
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>密码：</dt>
+        <dd>
+            <input id="password" type="text" name="predictDate" />
+        </dd>
+    </dl>
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>性别（1男,2女，3未知）：</dt>
+        <dd>
+            <input id="gender" type="text" name="predictDate" />
+        </dd>
+    </dl>
+
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>联系电话：</dt>
+        <dd>
+            <input id="phone" type="text" name="predictDate" />
+        </dd>
+    </dl>
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>邮箱：</dt>
+        <dd class="Supplier-lookup">
+            <input id="mail" type="text" name="predictDate" />
+        </dd>
+    </dl>
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>联系地址：</dt>
+        <dd class="Supplier-lookup">
+            <input id="address" type="text" name="predictDate" />
+        </dd>
+    </dl>
+</div>
+</body>
+</html>
