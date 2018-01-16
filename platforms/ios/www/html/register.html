@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>hello</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            width: 61.8%;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        a :hover {
+            cursor: pointer;
+        }
+
+        .Supplier-header {
+            width: 100%;
+            height: 50px;
+            background: #F2F6F9;
+            text-align: center;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .Supplier-header a {
+            font-size: 20px;
+            display: inline-block;
+            font-weight: bold;
+            position: absolute;
+            top: 0.5em;
+            left: 1em;
+        }
+
+        .Supplier-header p {
+            margin: 0;
+            padding: 0;
+            height: 50px;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .Supplier-right {
+            width: 97%;
+            margin: 0 auto;
+        }
+
+        .Supplier-mc {
+            width: 100%;
+            margin: 7px 0 0;
+        }
+
+        .Supplier-mc dt {
+            width: 100%;
+        }
+
+        .Supplier-mc dd {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .Supplier-mc input {
+            width: 61.8%;
+            height: 30px;
+        }
+
+        .Supplier-mc span {
+            color: red;
+        }
+
+        .Supplier-lookup > a {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            background: url(/www/img/logo.png) no-repeat -47px 0;
+            top: 7px;
+            left: 94%;
+        }
+
+        .Supplier-footer a {
+            display: inline-block;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            height: 30px;
+            line-height: 30px;
+        }
+
+    </style>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        function register() {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var phone = $("#phone").val();
+            var mail = $("#mail").val();
+            var gender = $("#gender").val();
+            var address = $("#address").val();
+            var req_data = {
+                "username": username,
+                "password": password,
+                "phone": phone,
+                "mail": mail,
+                "gender": gender,
+                "address": address
+            };
+            $.ajax({
+                url: 'http://192.168.2.120:7087/app/register',
+                // url: '122.226.221.26:7087/app/register',
+                type: "POST",
+                data: req_data,
+                dataType: "jsonp", //返回JSONP格式的数据，此值固定
+                jsonp: "callback", //回调函数的名字，此值固定
+                timeout: 30000,
+                success: function (data) {
+                    if (data.result === "success") {
+                        alert(data.message);
+                        history.back();
+                    } else {
+                        alert(data.result);
+                    }
+                },
+                error: function () {
+                    alert("请求失败");
+                }
+            });
+        }
+
+        // function check() {
+        //     var username = $("#username").val();
+        //     if (username===null) {
+        //         $("#usernameTip").val('用户名不能为空');
+        //         return;
+        //     }
+        //     $.ajax({
+        //         url: 'http://192.168.2.120:7087/app/check',
+        //         type: "POST",
+        //         data: {
+        //             "item":"username",
+        //             "value":username
+        //         },
+        //         dataType: "jsonp", //返回JSONP格式的数据，此值固定
+        //         jsonp: "callback", //回调函数的名字，此值固定
+        //         timeout: 30000,
+        //         success: function (data) {
+        //             if (data.result!=='success') {
+        //                  $("#usernameTip").val(data.message);
+        //             }
+        //         },
+        //         error: function () {
+        //             alert("请求失败");
+        //         }
+        //     });
+        // }
+    </script>
+
+</head>
+<body>
+<header class="Supplier-header">
+    <a href="javascript:history.back()">返回</a>
+    <p>注册</p>
+</header>
+<div class="Supplier-right">
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>用户名：</dt>
+        <dd>
+            <input id="username" type="text" name="predictDate"><i id="usernameTip"></i>
+        </dd>
+    </dl>
+
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>密码：</dt>
+        <dd>
+            <input id="password" type="text" name="predictDate">
+        </dd>
+    </dl>
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>性别（1男,2女，3未知）：</dt>
+        <dd>
+            <input id="gender" type="number" name="predictDate">
+        </dd>
+    </dl>
+
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>联系电话：</dt>
+        <dd>
+            <input id="phone" type="text" name="predictDate">
+        </dd>
+    </dl>
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>邮箱：</dt>
+        <dd class="Supplier-lookup">
+            <input id="mail" type="text" name="predictDate">
+        </dd>
+    </dl>
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>联系地址：</dt>
+        <dd class="Supplier-lookup">
+            <input id="address" type="text" name="predictDate">
+        </dd>
+    </dl>
+    <button onclick="register()">注册</button>
+</div>
+</body>
+</html>

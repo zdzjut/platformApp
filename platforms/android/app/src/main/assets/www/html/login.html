@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>hello</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        function login() {
+            var username = $('#username').val();
+            var password = $("#password").val();
+            var req_data = {
+                "username": username,
+                "password": password
+            };
+            $.ajax({
+                url: 'http://192.168.2.120:7087/app/login',
+                // url: '122.226.221.26:7087/app/login',
+                type: "POST",
+                data: req_data,
+                dataType: "jsonp", //返回JSONP格式的数据，此值固定
+                jsonp: "callback", //回调函数的名字，此值固定
+                timeout: 30000,
+                success: function (data) {
+                    if (data.result==='success'){
+                        alert(data.message);
+                        location.href = "detail.html?id="+data.data;
+                    }else {
+                        alert(data.result);
+                    }
+                },
+                error: function () {
+                    alert("请求失败");
+                }
+            });
+        }
+    </script>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        a :hover {
+            cursor: pointer;
+        }
+
+        .Supplier-header {
+            width: 100%;
+            height: 50px;
+            background: #F2F6F9;
+            text-align: center;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .Supplier-header a {
+            font-size: 20px;
+            display: inline-block;
+            font-weight: bold;
+            position: absolute;
+            top: 0.5em;
+            left: 1em;
+        }
+
+        .Supplier-header p {
+            margin: 0;
+            padding: 0;
+            height: 50px;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .Supplier-right {
+            width: 97%;
+            margin: 0 auto;
+        }
+
+        .Supplier-mc {
+            width: 100%;
+            margin: 7px 0 0;
+        }
+
+        .Supplier-mc dt {
+            width: 100%;
+        }
+
+        .Supplier-mc dd {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .Supplier-mc input {
+            width: 61.8%;
+            height: 30px;
+        }
+
+        .Supplier-mc span {
+            color: red;
+        }
+
+        .Supplier-footer a {
+            display: inline-block;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            height: 30px;
+            line-height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<header class="Supplier-header">
+    <a href="javascript:history.back()">返回</a>
+    <p>登录</p>
+</header>
+<div class="Supplier-right">
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>用户名：</dt>
+        <dd>
+            <input id="username" type="text" name="predictDate">
+        </dd>
+    </dl>
+
+    <dl class="Supplier-mc">
+        <dt><span class="f_c"></span>密码：</dt>
+        <dd>
+            <input id="password" type="text" name="predictDate">
+        </dd>
+    </dl>
+
+    <div>
+        <button onclick="login()">登录</button>
+    </div>
+</div>
+</body>
+</html>
