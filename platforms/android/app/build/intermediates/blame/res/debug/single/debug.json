@@ -4,6 +4,10 @@
         "source": "D:\\workspace\\platformApp\\platforms\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\icon.png"
     },
     {
+        "merged": "D:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_provider_paths.xml.flat",
+        "source": "D:\\workspace\\platformApp\\platforms\\android\\app\\src\\main\\res\\xml\\provider_paths.xml"
+    },
+    {
         "merged": "D:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-ldpi_screen.png.flat",
         "source": "D:\\workspace\\platformApp\\platforms\\android\\app\\src\\main\\res\\drawable-port-ldpi\\screen.png"
     },

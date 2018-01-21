@@ -4,7 +4,6 @@ body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
     padding: 0;
     border: 0;
     font-size: 14px;
-    font: inherit;
     vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section {
@@ -111,7 +110,7 @@ header{
     float: left;
     text-align: center;
     border-radius: 7px;
-    margin: 10px 0px 0px 25px;
+    margin: 10px 0 0 25px;
     line-height: 155px;
 }
 .order-box-a{
@@ -125,8 +124,8 @@ header{
     width:120px;
     height:30px;
     position: relative;
-    top:0px;
-    left:0px;
+    top:0;
+    left:0;
 }
 
 footer{

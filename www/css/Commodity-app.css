@@ -3,8 +3,6 @@ body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 14px;
-    font: inherit;
     vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section {
@@ -101,15 +99,15 @@ header{
     display: inline-block;
     width:28px;
     height:28px;
-    margin:8px 0px 0px 10px;
-    background: url("../img/21.png") no-repeat 0px 0px;
+    margin:8px 0 0 10px;
+    background: url("../img/21.png") no-repeat 0 0;
 }
 .commodity-top-b b{
     display: inline-block;
     width:28px;
     height:28px;
-    margin: 8px 0px 0px 70px;
-    background: url("../img/21.png") no-repeat 0px -28px;
+    margin: 8px 0 0 70px;
+    background: url("../img/21.png") no-repeat 0 -28px;
 }
 .commodity-footer{
     width:100%;
@@ -122,7 +120,7 @@ header{
     height:30px;
     border-radius: 5px;
     background-color: #fff;
-    margin: 10px 0px 10px 20px;
+    margin: 10px 0 10px 20px;
 }
 .commodity-footer input{
     border: none;
@@ -136,7 +134,7 @@ input::-webkit-input-placeholder {
     display: inline-block;
     width: 20px;
     height:20px;
-    background: url("../img/21.png") no-repeat 0px -76px;
+    background: url("../img/21.png") no-repeat 0 -76px;
     position: relative;
     top:6px;
     left:-5px;
@@ -145,7 +143,7 @@ input::-webkit-input-placeholder {
     display: inline-block;
     width: 20px;
     height:20px;
-    background: url("../img/21.png") no-repeat 0px -56px;
+    background: url("../img/21.png") no-repeat 0 -56px;
     position: relative;
     top:6px;
     left:5px;
@@ -159,14 +157,14 @@ section{
     display: inline-block;
     width:12px;
     height:12px;
-    background: url("../img/21.png") no-repeat 0px -96px;
+    background: url("../img/21.png") no-repeat 0 -96px;
     margin-right:10px;
 }
 .commodity-td>b{
     display: inline-block;
     width:12px;
     height:12px;
-    background: url("../img/21.png") no-repeat 0px -108px;
+    background: url("../img/21.png") no-repeat 0 -108px;
 }
 .commodity-id{
     display: none;

@@ -4,7 +4,7 @@
   "name": "PlatformApp",
   "short_name": "PlatformApp",
   "version": "com.gmgyl.platform",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "外综平台移动APP",
   "author": "Apache Cordova Team",
   "icons": [],
   "start_url": "index.html"
