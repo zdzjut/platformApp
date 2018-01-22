@@ -54,7 +54,8 @@ function upup(pictureUrl,num) {
     var serverUri = encodeURI(url + '/app/file');
 
     function fileTransferSuccess(result) {
-        alert(result.response);
+        alert('成功');
+        // alert(num+'的结果是'+result.response);
         // if(result.response.result!=='success'){
         //     alert(num+"上传失败，原因是" + result.response.message);
         // }  else{
@@ -78,10 +79,11 @@ function submitPicture() {
     var myImage2 = document.getElementById('myImage2').src;
     var myImage3 = document.getElementById('myImage3').src;
     var myImage4 = document.getElementById('myImage4').src;
-    alert();
-     // document.getElementById('uploading').val('上传中，请稍等');
+    var uploading = document.getElementById('uploading');
+    // uploading.val('上传中，请稍等!!!');
     upup(myImage1,1);
     upup(myImage2,2);
     upup(myImage3,3);
     upup(myImage4,4);
+    // uploading.val('上传结束');
 }

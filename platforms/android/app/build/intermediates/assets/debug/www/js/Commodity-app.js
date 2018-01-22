@@ -70,6 +70,7 @@ function changeDeleteFlag(id) {
 /*搜索框清空设置*/
 $("#clear-b").click(function () {
     $(".content").val('');
+    location.href = "../html/Commodity-app.html";
 });
 // 添加列表详情页
 $(".chinese-name").click(function () {
