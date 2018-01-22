@@ -5,7 +5,6 @@ var app = {
 
     onDeviceReady: function () {
         console.log(navigator.camera);
-        console.log(1);
         console.log(navigator.device.capture);
         this.receivedEvent();
     },
@@ -13,7 +12,8 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-var url = 'http://192.168.1.5:7087';
+// var url = 'http://192.168.1.5:7087';
+window.url = 'http://192.168.2.120:7087';
 
 app.initialize();
 

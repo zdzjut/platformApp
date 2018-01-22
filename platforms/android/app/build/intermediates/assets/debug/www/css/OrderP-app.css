@@ -1,0 +1,154 @@
+/*通用样式*/
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, q, dl, dt, dd, ol, ul, li, input, fieldset, form, legend, caption, tbody, tfoot, thead, article, aside, dialog, figure, footer, header, hgroup, nav, section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 14px;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    font-size: 12px;
+    color: #333;
+    background: #fff;
+    font-family: "Microsoft YaHei", "simsun", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+img {
+    border: 0;
+}
+/*自定义链接颜色(可自由更换)*/
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+/*链接-颜色*/
+
+a:hover {
+    color: #1380cb;
+}
+
+/*链接-悬浮颜色*/
+
+.text-underline:hover {
+    text-decoration: underline;
+}
+/***float***/
+
+.fl {
+    float: left !important;
+}
+.fr {
+    float: right !important;
+}
+/*清除浮动*/
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clear {
+    clear: both;
+}
+
+/*页面样式开始*/
+body{background-color: #eee;}
+#order-all{
+    width:100%;
+}
+header{
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    background: #3481ED;
+    line-height: 45px;
+    color: #fff;
+    font-size: 17px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+ }
+ header>h1{
+     width:139px;
+     height:34px;
+     margin:0 auto;
+ }
+ section{
+     width:100%;
+     position: absolute;
+     margin-top: 45px;
+ }
+.order-bgm{
+    width:100%;
+    height:250px;
+}
+.order-bgm img{
+    width:100%;
+}
+.order-box{
+    width:100%;
+}
+.order-box-all{
+    width:310px;
+    height:270px;
+    position: relative;
+    top:-80px;
+    left:8%;
+}
+.order-box-all>a{
+    display: inline-block;
+    background: #fff;
+    width: 120px;
+    height: 120px;
+    float: left;
+    text-align: center;
+    border-radius: 7px;
+    margin: 10px 0 0 25px;
+    line-height: 155px;
+}
+.order-box-a{
+
+}
+.order-box-a img{
+    width:55px;
+    height:55px;
+}
+.order-box-a>p{
+    width:120px;
+    height:30px;
+    position: relative;
+    top:0;
+    left:0;
+}
+
+footer{
+    width:100%;
+    height:70px;
+    background:#fff;
+    position: fixed;
+    bottom: 0;
+}
+footer li{
+    display: inline-block;
+    width: 33%;
+    height: 70px;
+    float: left;
+    text-align: center;
+    line-height: 100px;
+}
+footer li>a{
+    display: inline-block;
+    width:42px;
+    height:42px;
+}
+footer li>a>img{
+    width:33px;
+    height:33px;
+}

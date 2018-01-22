@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Jan 21 23:37:49 CST 2018
+#Sun Jan 21 23:58:54 CST 2018
 60.set=ANDROID_RESOURCE
 52.set=ASSET
 53.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
