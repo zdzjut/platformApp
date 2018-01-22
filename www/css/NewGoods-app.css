@@ -1,0 +1,210 @@
+/*通用样式*/
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, q, dl, dt, dd, ol, ul, li, input, fieldset, form, legend, caption, tbody, tfoot, thead, article, aside, dialog, figure, footer, header, hgroup, nav, section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 14px;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    font-size: 12px;
+    color: #333;
+    background: #fff;
+    font-family: "Microsoft YaHei", "simsun", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+img {
+    border: 0;
+}
+ul,ol{
+    list-style: none;
+}
+
+/*自定义链接颜色(可自由更换)*/
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+/*链接-颜色*/
+
+a:hover {
+    color: #1380cb;
+}
+
+/*链接-悬浮颜色*/
+
+.text-underline:hover {
+    text-decoration: underline;
+}
+/***float***/
+
+.fl {
+    float: left !important;
+}
+.fr {
+    float: right !important;
+}
+/*清除浮动*/
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clear {
+    clear: both;
+}
+input::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+/*页面样式开始*/
+body{background-color: #eee;}
+#order-all{
+    width:100%;
+}
+header{
+    width: 100%;
+    height: 45px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+.newgoods-top{
+    width: 100%;
+    height: 45px;
+    background: #3481ED;
+    line-height: 45px;
+    color: #fff;
+    font-size: 17px;
+}
+.newgoods-top li{
+    float:left;
+    height:45px;
+}
+.newgoods-top-i{
+    width:30%;
+}
+.newgoods-top-h{
+    width:40%;
+    text-align: center;
+}
+.newgoods-top i{
+    display: inline-block;
+    width:28px;
+    height:28px;
+    margin:8px 0px 0px 10px;
+    background: url("../img/21.png") no-repeat 0px 0px;
+}
+.newgoods-footer{
+    width:100%;
+    background-color: #fff;
+    height:35px;
+    line-height: 35px;
+    text-align: left;
+}
+.newgoods-footer-div{
+    width:50%;
+    height:30px;
+    margin-left: 4%;
+}
+.newgoods-footer-div>span{
+    display: inline-block;
+    width:2px;
+    height:10px;
+    background-color: #3481ED;
+
+}
+.newgoods-footer-div>p{
+    display: inline-block;
+    height:30px;
+    color:#000;
+    font-size: 12px;
+}
+
+section{
+    width:100%;
+    margin-top:90px;
+    background:#fff;
+}
+.f_c{color: #f00;}
+.newgoods-section-dl{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100%;
+}
+.newgoods-section-dl dt{
+    font-size: 13px;
+    float: left;
+    text-align: left;
+    width: 22%;
+    line-height: 30px;
+    font-weight:normal;
+}
+.newgoods-section-dl dd{
+    width: 75%;
+    float: left;
+}
+.newgoods-section-dl input ,select{
+    width: 96%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 30px;
+    color: #333;
+    font-size:12px;
+}
+/* textarea框公用样式 */
+.newgoods-section-textarea{
+    display: inline-block;
+    width:100%;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.newgoods-section-textarea dt{
+    font-size: 13px;
+    float: left;
+    text-align: left;
+    width: 22%;
+    line-height: 30px;
+    font-weight:normal;
+}
+.newgoods-section-textarea dd{
+    width: 75%;
+    float: left;
+}
+.newgoods-section-textarea textarea{
+    width: 93%;
+    padding: 4px 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    line-height: 18px;
+    min-height: 50px;
+    font-size:13px;
+}
+footer{
+    width:100%;
+    background:#fff;
+    height: 80px;
+    line-height: 80px;
+    text-align: right;
+}
+.newgoods-button{
+    width:75px;
+    height:30px;
+    border-radius: 5px;
+    background-color: #7bb4fb;
+    border: none;
+    color: #fff;
+    margin-right: 3%;
+}
+
+
