@@ -1,4 +1,5 @@
-var url = 'http://192.168.2.120:7087';
+// var url = 'http://192.168.2.120:7087';
+var url = 'http://122.226.221.26:7088';
 function next() {
     var clientId = window.localStorage.getItem('clientId');
     var commodityName = $('#commodityName').val();

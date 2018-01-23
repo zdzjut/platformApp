@@ -1,10 +1,8 @@
 // var url = 'http://192.168.1.5:7087';
-var url = 'http://192.168.2.120:7087';
+// var url = 'http://192.168.2.120:7087';
+var url = 'http://122.226.221.26:7088';
 
 /**选择图片库***/
-// $("#myImage1").click(function () {
-//     alert('选择拍照或文件,并传递id');
-// });
 function fetchPictures(id) {
     navigator.camera.getPicture(fetchPictureSuccess, fetchPictureFail, {
         quality: 50,
@@ -18,7 +16,6 @@ function fetchPictures(id) {
     function fetchPictureSuccess(imageURI) {
         var image = document.getElementById(id);
         image.src = imageURI;
-        // upup(imageURI);
     }
 
 //获取文件失败
@@ -77,7 +74,6 @@ function submitPicture() {
     var myImage3 = document.getElementById('myImage3').src;
     var myImage4 = document.getElementById('myImage4').src;
     var tempId = window.localStorage.getItem('tempId');
-    alert("开始提交图片，ID" + tempId);
     upup(myImage1, 'commodityImg', tempId);
     upup(myImage2, 'commodityInnerImg', tempId);
     upup(myImage3, 'commodityBrandImg', tempId);
