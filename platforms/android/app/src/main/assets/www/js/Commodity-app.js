@@ -1,7 +1,6 @@
 // var url = 'http://192.168.1.5:7087';
 var url = 'http://192.168.2.120:7087';
 
-document.write('<script language="JavaScript" src="common.js"></script>');
 
 var clientId = window.localStorage.getItem('clientId');
 var keyword = window.localStorage.getItem('keyword');
@@ -19,10 +18,10 @@ function search() {
         timeout: 30000,
         success: function (data) {
             window.localStorage.removeItem("keyword");
-            var myjson = data.data.list;
-            for (var i = 0; i < myjson.length; i++) {
+            var list = data.data.list;
+            for (var i = 0; i < list.length; i++) {
                 var wf = "";
-                var flag = myjson[i].wfStatus;
+                var flag = list[i].wfStatus;
                 if (flag === -2022109403) {
                     wf = '审核完成';
                     // $(".disappear-b").css("display", "none");
@@ -31,17 +30,15 @@ function search() {
                 } else if (flag === -2022109401) {
                     wf = '暂存';
                 }
-                var newRow = "<tr><td class='chinese-name'>" + myjson[i].commodityName + "</td><td class='customs-code'>" + myjson[i].commodityModel + "</td><td class='process-state'>" + wf
-                    + "</td><td class='commodity-td'>" + "<i class='commodity-edit'></i><b class='disappear-b' onclick='changeDeleteFlag(" + myjson[i].id + ")'></b></td>";
+                var newRow = "<tr><td class='chinese-name'>" + list[i].commodityName + "</td><td class='customs-code'>" + list[i].commodityModel + "</td><td class='process-state'>" + wf
+                    + "</td><td class='commodity-td'>" + "<i class='commodity-edit'></i><b class='disappear-b' onclick='changeDeleteFlag(" + list[i].id + ")'></b></td>";
                 $('#commodity-tbody').append(newRow);
             }
-           $("#search-input").val(keyword);
-        },
-        error: function () {
-            showMessage("未知错误");
+            $("#search-input").val(keyword);
         }
     });
 }
+
 //删除此项
 function changeDeleteFlag(id) {
     getContent();
@@ -87,6 +84,7 @@ $("#search-input").keydown(function (e) {
         location.href = "../html/Commodity-app.html";
     }
 });
+
 function getContent() {
     var content = $("#search-input").val();
     window.localStorage.setItem("keyword", content);

@@ -13,17 +13,16 @@ var app = {
     }
 };
 // var url = 'http://192.168.1.5:7087';
-window.url = 'http://192.168.2.120:7087';
+var url = 'http://192.168.2.120:7087';
 
 app.initialize();
 
 function check() {
     var token = window.localStorage.getItem('token');
-    alert(token);
     if (token == null) {
         location.href = "html/Login-app.html";
     }
-    alert(url + '/app/check');
+    console.log(url + '/app/check');
     $.ajax({
         url: url + '/app/check',
         type: "POST",
