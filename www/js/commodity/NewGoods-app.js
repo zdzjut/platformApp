@@ -4,7 +4,6 @@ function next() {
         //防止重复保存数据
         location.href = "../../html/commodity/NewGoods-app2.html"
     }
-    alert(tempId);
     var clientId = getMap('clientId');
     var commodityName = $('#commodityName').val();
     var hscode = $('#hscode').val();

@@ -1,14 +1,22 @@
-pictureCache( 'commodityImg');
-pictureCache( 'commodityBrandImg');
-pictureCache( 'commodityInnerImg');
-pictureCache( 'commodityOtherImg');
+pictureCache('commodityImg');
+pictureCache('commodityBrandImg');
+pictureCache('commodityInnerImg');
+pictureCache('commodityOtherImg');
+
 //在返回上一步时保存图片
 function pictureCache(id) {
-    alert(id);
-    var idCache= getMap(id);
-    if (idCache!==null){
-        $("#"+id).src=idCache;
+    var imageURI = getMap(id);
+    if (imageURI !== null) {
+        var image = document.getElementById(id);
+        image.src = imageURI;
     }
+}
+//取出返回上一步时保存图片的缓存
+function deletePictureCache() {
+    removeMap('commodityImg');
+    removeMap('commodityBrandImg');
+    removeMap('commodityInnerImg');
+    removeMap('commodityOtherImg');
 }
 
 
@@ -35,6 +43,10 @@ function hideDg() {
     $(".overlay").hide();
 }
 
+$(".overlay").click(function () {
+    hideDg();
+});
+
 /**选择图片库***/
 function fetchPictures() {
     navigator.camera.getPicture(fetchPictureSuccess, fetchPictureFail, {
@@ -50,7 +62,7 @@ function fetchPictures() {
         var id = getMap('nowId');
         var image = document.getElementById(id);
         image.src = imageURI;
-        setMap(id,imageURI);
+        setMap(id, imageURI);
     }
 
 //获取文件失败
@@ -72,6 +84,7 @@ function capturePictures() {
         var id = getMap('nowId');
         var image = document.getElementById(id);
         image.src = imageURI;
+        setMap(id, imageURI);
     }
 
 //获取文件失败
@@ -119,16 +132,17 @@ function submitPicture(type) {
         type: "post",
         data: {
             'tempId': tempId,
-            'type':type
+            'type': type
         },
         dataType: "jsonp", //返回JSONP格式的数据，此值固定
         jsonp: "callback", //回调函数的名字，此值固定
         timeout: 0,
         success: function (data) {
             if (data.result === 'success') {
+                deletePictureCache();
                 location.href = "../../html/commodity/Commodity-app.html";
             } else {
-                alert(data.result+data.message);
+                alert(data.result + data.message);
             }
             removeMap("tempId");
         },
