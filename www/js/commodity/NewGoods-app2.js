@@ -4,6 +4,7 @@ pictureCache( 'commodityInnerImg');
 pictureCache( 'commodityOtherImg');
 //在返回上一步时保存图片
 function pictureCache(id) {
+    alert(id);
     var idCache= getMap(id);
     if (idCache!==null){
         $("#"+id).src=idCache;
