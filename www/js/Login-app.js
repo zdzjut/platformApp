@@ -1,7 +1,3 @@
-// var url = 'http://192.168.1.5:7087';
-var url = 'http://192.168.2.120:7087';
-// var url = 'http://122.226.221.26:7088';
-
 function login() {
     window.localStorage.clear();
     var account = $('#account').val();
@@ -19,16 +15,15 @@ function login() {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                alert( data.message+"id="+data.data.id);
-                window.localStorage.setItem('token', data.message);
-                window.localStorage.setItem('clientId', data.data.id);
-                location.href = "OrderP-app.html";
+                setMap('token', data.message);
+                setMap('clientId', data.data.id);
+                location.href = "../html/OrderP-app.html";
             } else {
                 alert(data.result);
             }
         },
         error: function () {
-            alert("请求失败");
+            alert("请求超时，网络出现异常");
         }
     });
 }

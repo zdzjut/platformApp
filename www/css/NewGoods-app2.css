@@ -1,4 +1,4 @@
-/*通用样式*/
+ /*通用样式*/
 body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, q, dl, dt, dd, ol, ul, li, input, fieldset, form, legend, caption, tbody, tfoot, thead, article, aside, dialog, figure, footer, header, hgroup, nav, section {
     margin: 0;
     padding: 0;
@@ -157,6 +157,10 @@ section{
     position:absolute;
     background:url("../img/upload.png");
 }
+ .newgoods-section-box li>div>img{
+     width:150px;
+     height:125px;
+ }
 .newgoods-section-box li>i{
     display: inline-block;
     width: 25px;

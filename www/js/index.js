@@ -23,7 +23,6 @@ function check() {
     if (token == null) {
         location.href = "html/Login-app.html";
     }
-    console.log(url + '/app/check');
     $.ajax({
         url: url + '/app/check',
         type: "POST",

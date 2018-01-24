@@ -543,6 +543,20 @@ function upload(fileEntry) {
     ft.upload(fileURL, encodeURI(SERVER), success, fail, options);
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
 
 ## Download the uploaded file <a name="downloadFile"></a>

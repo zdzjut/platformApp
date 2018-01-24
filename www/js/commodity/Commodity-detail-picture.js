@@ -1,7 +1,3 @@
-// var url = 'http://192.168.1.5:7087';
-var url = 'http://192.168.2.120:7087';
-// var url = 'http://122.226.221.26:7088';
-
 /**选择图片库***/
 function fetchPictures(id) {
     navigator.camera.getPicture(fetchPictureSuccess, fetchPictureFail, {
@@ -20,7 +16,6 @@ function fetchPictures(id) {
 
 //获取文件失败
     function fetchPictureFail(message) {
-        alert('获取文件失败' + message);
     }
 }
 
@@ -36,7 +31,6 @@ function capturePictures(id) {
     function takePictureSuccess(imageURI) {
         var image = document.getElementById(id);
         image.src = imageURI;
-        // upup(imageURI);
     }
 
 //获取文件失败
@@ -57,7 +51,7 @@ function upup(pictureUrl, type, tempId) {
     }
 
     function fileTransferError(error) {
-        alert("异常代码" + error.code);
+        alert("出现网络异常，异常代码" + error.code);
     }
 
     var fileUploadOptions = new FileUploadOptions();
@@ -88,12 +82,16 @@ function submitPicture() {
         jsonp: "callback", //回调函数的名字，此值固定
         timeout: 0,
         success: function (data) {
-            alert(data.result);
+            if (data.result === 'success') {
+                location.href = "../../html/commodity/Commodity-app.html";
+            } else {
+                alert(data.message);
+            }
+            removeMap("tempId");
         },
         error: function (e) {
             alert(e)
         }
-
     });
 
 }

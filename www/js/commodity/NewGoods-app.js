@@ -1,7 +1,11 @@
-var url = 'http://192.168.2.120:7087';
-// var url = 'http://122.226.221.26:7088';
 function next() {
-    var clientId = window.localStorage.getItem('clientId');
+    var tempId = getMap('tempId');
+    if (tempId!==null){
+        //防止重复保存数据
+        location.href = "../../html/commodity/NewGoods-app2.html"
+    }
+    alert(tempId);
+    var clientId = getMap('clientId');
     var commodityName = $('#commodityName').val();
     var hscode = $('#hscode').val();
     var commodityMaterial = $('#commodityMaterial').val();
@@ -26,7 +30,7 @@ function next() {
             commodityMaterial: commodityMaterial,
             commodityModel: commodityModel,
             commodityBrand: commodityBrand,
-            commodityEnglishNam: commodityEnglishName,
+            commodityEnglishName: commodityEnglishName,
             commodityRecedeTariff: commodityRecedeTariff,
             commodityAppreciationTariff: commodityAppreciationTariff,
             application: application,
@@ -40,10 +44,8 @@ function next() {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                window.localStorage.setItem('tempId',data.data);
-                alert("获得ID: "+data.data);
-                location.href = "../../html/commodity/Commodity-detail-picture.html"
-                // location.href = "../html/Commodity-app.html";
+                setMap('tempId', data.data);
+                location.href = "../../html/commodity/NewGoods-app2.html"
             } else {
                 alert(data.message);
             }

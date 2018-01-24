@@ -14,6 +14,7 @@ var app = {
 };
 // var url = 'http://192.168.1.5:7087';
 var url = 'http://192.168.2.120:7087';
+// var url = 'http://122.226.221.26:7088';
 
 app.initialize();
 
@@ -22,7 +23,6 @@ function check() {
     if (token == null) {
         location.href = "html/Login-app.html";
     }
-    console.log(url + '/app/check');
     $.ajax({
         url: url + '/app/check',
         type: "POST",
