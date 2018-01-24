@@ -1,6 +1,6 @@
 // var url = 'http://192.168.1.5:7087';
-// var url = 'http://192.168.2.120:7087';
-var url = 'http://122.226.221.26:7088';
+var url = 'http://192.168.2.120:7087';
+// var url = 'http://122.226.221.26:7088';
 
 
 var clientId = window.localStorage.getItem('clientId');
@@ -54,7 +54,7 @@ function changeDeleteFlag(id) {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                location.href = "../html/Commodity-app.html";
+                location.href = "../../html/commodity/Commodity-app.html";
             } else {
                 alert(data.message);
             }
@@ -68,7 +68,7 @@ function changeDeleteFlag(id) {
 /*搜索框清空设置*/
 $("#clear-b").click(function () {
     $(".content").val('');
-    location.href = "../html/Commodity-app.html";
+    location.href = "../../html/commodity/Commodity-app.html";
 });
 // 添加列表详情页
 $(".chinese-name").click(function () {
@@ -77,12 +77,12 @@ $(".chinese-name").click(function () {
 //模糊查询
 $("#search-i").click(function () {
     getContent();
-    location.href = "../html/Commodity-app.html";
+    location.href = "../../html/commodity/Commodity-app.html";
 });
 $("#search-input").keydown(function (e) {
     if (e.keyCode === 13) {
         getContent();
-        location.href = "../html/Commodity-app.html";
+        location.href = "../../html/commodity/Commodity-app.html";
     }
 });
 

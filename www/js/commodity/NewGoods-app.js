@@ -1,5 +1,5 @@
-// var url = 'http://192.168.2.120:7087';
-var url = 'http://122.226.221.26:7088';
+var url = 'http://192.168.2.120:7087';
+// var url = 'http://122.226.221.26:7088';
 function next() {
     var clientId = window.localStorage.getItem('clientId');
     var commodityName = $('#commodityName').val();
@@ -42,7 +42,7 @@ function next() {
             if (data.result === 'success') {
                 window.localStorage.setItem('tempId',data.data);
                 alert("获得ID: "+data.data);
-                location.href = "../html/Commodity-detail-picture.html"
+                location.href = "../../html/commodity/Commodity-detail-picture.html"
                 // location.href = "../html/Commodity-app.html";
             } else {
                 alert(data.message);
