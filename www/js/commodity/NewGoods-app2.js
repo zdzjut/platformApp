@@ -63,6 +63,7 @@ function fetchPictures() {
         var image = document.getElementById(id);
         image.src = imageURI;
         setMap(id, imageURI);
+        $(".newgoods-section-i").css("display","inline-block");
     }
 
 //获取文件失败

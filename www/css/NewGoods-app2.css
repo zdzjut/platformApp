@@ -162,7 +162,7 @@ section{
      height:125px;
  }
 .newgoods-section-box li>i{
-    display: inline-block;
+    display: none;
     width: 25px;
     height: 25px;
     background:url("../img/21.png") no-repeat 0 -132px;
