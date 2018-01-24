@@ -1,8 +1,21 @@
 function next() {
     var tempId = getMap('tempId');
     if (tempId!==null){
-        //防止重复保存数据
-        location.href = "../../html/commodity/NewGoods-app2.html"
+        var flag=true;
+        //解决了 防止重复保存数据,如果发生修改又要重新提交
+        $(":text").change(function () {
+            alert("word was change!!!");
+            flag=false;
+        });
+        $("#declarationItems").change(function () {
+            flag=false;
+        });
+        $("#remarks").change(function () {
+            flag=false;
+        });
+        if (flag){
+            location.href = "../../html/commodity/NewGoods-app2.html"
+        }
     }
     var clientId = getMap('clientId');
     var commodityName = $('#commodityName').val();

@@ -52,10 +52,10 @@ function fetchPictures() {
     navigator.camera.getPicture(fetchPictureSuccess, fetchPictureFail, {
         quality: 50,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,//打开系统的图片库
-        destinationType: Camera.DestinationType.FILE_URI,//存储照片的数据/路径
-        encodingType: Camera.EncodingType.JPEG,
-        mediaType: Camera.MediaType.PICTURE,
-        saveToPhotoAlbum: true
+        destinationType: Camera.DestinationType.FILE_URI//存储照片的数据/路径
+        // encodingType: Camera.EncodingType.JPEG,
+        // mediaType: Camera.MediaType.PICTURE,
+        // saveToPhotoAlbum: true
     });
 
     function fetchPictureSuccess(imageURI) {
@@ -122,7 +122,7 @@ function submitPicture(type) {
     var commodityBrandImg = document.getElementById('commodityBrandImg').src;
     var commodityInnerImg = document.getElementById('commodityInnerImg').src;
     var commodityOtherImg = document.getElementById('commodityOtherImg').src;
-    var tempId = window.localStorage.getItem('tempId');
+    var tempId = getMap('tempId');
     upup(commodityImg, 'commodityImg', tempId);
     upup(commodityBrandImg, 'commodityBrandImg', tempId);
     upup(commodityInnerImg, 'commodityInnerImg', tempId);
