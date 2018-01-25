@@ -1,3 +1,37 @@
+/**
+ * 显示4 张图片
+ */
+function showModify() {
+    var id = getMap("commodityId");
+    $.ajax({
+        url: url + '/app/detailCommodity',
+        type: "POST",
+        data: {
+            "id": id
+        },
+        dataType: "jsonp",
+        jsonp: "callback",
+        timeout: 30000,
+        success: function (data) {
+            if (data.result === 'success') {
+                //获取4张图片的数据库名称
+                var businessCommodityInfo = data.data.businessCommodityInfo;
+                var commodityImg = businessCommodityInfo.commodityImg;
+                var commodityBrandImg = businessCommodityInfo.commodityBrandImg;
+                var commodityInnerImg = businessCommodityInfo.commodityInnerImg;
+                var commodityOtherImg = businessCommodityInfo.commodityOtherImg;
+                modifyShowPicture("commodityImg", commodityImg);
+                modifyShowPicture("commodityBrandImg", commodityBrandImg);
+                modifyShowPicture("commodityInnerImg", commodityInnerImg);
+                modifyShowPicture("commodityOtherImg", commodityOtherImg);
+            } else {
+                alert(data.message);
+            }
+        }
+    });
+}
+
+
 //点击右上角叉号 去除图片
 function removePictureShow(id) {
     var image = document.getElementById(id);
@@ -44,8 +78,6 @@ function fetchPictures() {
     });
 
     function fetchPictureSuccess(imageURI) {
-        alert("第一次加载时的路径" + imageURI);
-
         var id = getMap('nowId');
         var image = document.getElementById(id);
         image.src = imageURI;
@@ -87,12 +119,14 @@ function capturePictures() {
 }
 
 /**文件上传start***/
-function upup(pictureUrl, type, tempId) {
+function modifyPicture(pictureUrl, type) {
     if (pictureUrl === null || pictureUrl === undefined || pictureUrl === '') {
         alert(type + 'picture this is empty');
         return;
     }
-    var serverUri = encodeURI(url + '/app/file?type=' + type + '&tempId=' + tempId);
+    var commodityId = getMap("commodityId");
+
+    var serverUri = encodeURI(url + '/app/modifyCommodityPicture?type=' + type + '&commodityId=' + commodityId);
 
     function fileTransferSuccess() {
     }
@@ -109,82 +143,19 @@ function upup(pictureUrl, type, tempId) {
     fileTransfer.upload(pictureUrl, serverUri, fileTransferSuccess, fileTransferError, fileUploadOptions);
 }
 
-function submitPicture(type) {
+/**文件上传end***/
+
+function submitPicture() {
     var commodityImg = document.getElementById('commodityImg').src;
     var commodityBrandImg = document.getElementById('commodityBrandImg').src;
     var commodityInnerImg = document.getElementById('commodityInnerImg').src;
     var commodityOtherImg = document.getElementById('commodityOtherImg').src;
-    var tempId = getMap('tempId');
-    upup(commodityImg, 'commodityImg', tempId);
-    upup(commodityBrandImg, 'commodityBrandImg', tempId);
-    upup(commodityInnerImg, 'commodityInnerImg', tempId);
-    upup(commodityOtherImg, 'commodityOtherImg', tempId);
-    $.ajax({
-        url: url + "/app/insertCommodity",
-        type: "post",
-        data: {
-            'tempId': tempId,
-            'type': type
-        },
-        dataType: "jsonp", //返回JSONP格式的数据，此值固定
-        jsonp: "callback", //回调函数的名字，此值固定
-        timeout: 0,
-        success: function (data) {
-            if (data.result === 'success') {
-                deletePictureCache();
-                location.href = "../../html/commodity/Commodity-app.html";
-            } else {
-                alert(data.result + data.message);
-            }
-            removeMap("tempId");
-        },
-        error: function (e) {
-            alert(e)
-        }
-    });
+    modifyPicture(commodityImg, 'commodityImg');
+    modifyPicture(commodityBrandImg, 'commodityBrandImg');
+    modifyPicture(commodityInnerImg, 'commodityInnerImg');
+    modifyPicture(commodityOtherImg, 'commodityOtherImg');
 
-}
-
-
-/**
- * 显示4 张图片
- */
-function showModify() {
-    var id = getParam("id");
-    $.ajax({
-        url: url + '/app/detailCommodity',
-        type: "POST",
-        data: {
-            "id": id
-        },
-        dataType: "jsonp",
-        jsonp: "callback",
-        timeout: 30000,
-        success: function (data) {
-            if (data.result === 'success') {
-                //获取4张图片的数据库名称
-                var businessCommodityInfo = data.data.businessCommodityInfo;
-                var commodityImg = businessCommodityInfo.commodityImg;
-                var commodityBrandImg = businessCommodityInfo.commodityBrandImg;
-                var commodityInnerImg = businessCommodityInfo.commodityInnerImg;
-                var commodityOtherImg = businessCommodityInfo.commodityOtherImg;
-                modifyShowPicture("commodityImg", commodityImg);
-                modifyShowPicture("commodityBrandImg", commodityBrandImg);
-                modifyShowPicture("commodityInnerImg", commodityInnerImg);
-                modifyShowPicture("commodityOtherImg", commodityOtherImg);
-            } else {
-                alert(data.message);
-            }
-        }
-    });
-}
-
-function modifyShowPicture(id, imageName) {
-    if (id === null || id === undefined) {
-        return;
-    }
-    var image = document.getElementById(id);
-    image.src = url + '/images/' + imageName;
-    $("#newgoods-section-" + id).css("display", "inline-block");
+    removeMap("commodityId");
+    location.href = "../../html/commodity/Commodity-app.html";
 }
 

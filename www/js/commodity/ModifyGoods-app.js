@@ -4,6 +4,7 @@
  */
 function next() {
     var id = getParam("id");
+    setMap("commodityId",id);
     var flag = true;
     //解决了 防止重复保存数据,如果发生修改又要重新提交
     $(":text").change(function () {

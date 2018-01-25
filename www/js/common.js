@@ -35,40 +35,13 @@ function removeMap(key) {
 function back() {
     history.back();
 }
-//手机物理返回键处理
-// var pageUrl = window.location.href;
-// var n = pageUrl.lastIndexOf('?');
-// var m = pageUrl.lastIndexOf('/');
-// var str = pageUrl.substring(m+1,n); //获取pageName
-//
-// var exitAppTicker = 0;
-// document.addEventListener("deviceready",function(){
-//     console.log("deviceready");
-//     document.addEventListener("backbutton", function(){
-//         if(处于菜单页面){//显示底部菜单按钮的页面
-//             //跳转到首页
-//         }else if(当前处于首页){
-//             if(exitAppTicker == 0){
-//                 exitAppTicker++;
-//                 console.log("再点一次退出");
-//                 setTimeout(function(){
-//                     exitAppTicker = 0;
-//                 },2000);
-//             }else if(exitAppTicker == 1){
-//                 navigator.app.exitApp(); //退出app
-//             }
-//         }else{
-//             history.back();
-//         }
-//     }, false);
-// },false);
-// //返回键点击响应
-//
-// function eventBackButton() {
-//     //进入后台
-//     navigator.Backbutton.goHome(function() {
-//         console.log('go home success');
-//     }, function() {
-//         console.log('go home fail');
-//     });
-// }
+
+//显示图片
+function modifyShowPicture(id, imageName) {
+    if (id === null || id === undefined) {
+        return;
+    }
+    var image = document.getElementById(id);
+    image.src = url + '/images/' + imageName;
+    $("#newgoods-section-" + id).css("display", "inline-block");
+}
