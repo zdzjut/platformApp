@@ -7,11 +7,22 @@ pictureCache('commodityOtherImg');
 function pictureCache(id) {
     var imageURI = getMap(id);
     if (imageURI !== null) {
+        alert("第二次加载时的路径" + imageURI);
         var image = document.getElementById(id);
         image.src = imageURI;
+        $("#newgoods-section-" + id).css("display", "inline-block");
     }
 }
-//取出返回上一步时保存图片的缓存
+
+//点击右上角叉号 去除图片
+function removePictureShow(id) {
+    var image = document.getElementById(id);
+    image.removeAttribute("src");
+    $("#newgoods-section-" + id).css("display", "none");
+
+}
+
+//去除返回上一步时保存图片的缓存
 function deletePictureCache() {
     removeMap('commodityImg');
     removeMap('commodityBrandImg');
@@ -51,24 +62,26 @@ $(".overlay").click(function () {
 function fetchPictures() {
     navigator.camera.getPicture(fetchPictureSuccess, fetchPictureFail, {
         quality: 50,
-        sourceType: Camera.PictureSourceType.PHOTOLIBRARY,//打开系统的图片库
-        destinationType: Camera.DestinationType.FILE_URI//存储照片的数据/路径
-        // encodingType: Camera.EncodingType.JPEG,
-        // mediaType: Camera.MediaType.PICTURE,
-        // saveToPhotoAlbum: true
+        sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,//打开系统的图片库
+        destinationType: 1,
+        saveToPhotoAlbum: true
+
     });
 
     function fetchPictureSuccess(imageURI) {
+        alert("第一次加载时的路径" + imageURI);
+
         var id = getMap('nowId');
         var image = document.getElementById(id);
         image.src = imageURI;
         setMap(id, imageURI);
-        $(".newgoods-section-i").css("display","inline-block");
+        $("#newgoods-section-" + id).css("display", "inline-block");
     }
 
 //获取文件失败
     function fetchPictureFail(message) {
     }
+
     hideDg();
 }
 
@@ -78,7 +91,7 @@ function capturePictures() {
     navigator.camera.getPicture(takePictureSuccess, takePictureFail, {
         quality: 50,
         sourceType: 1,       //拍照
-        destinationType: Camera.DestinationType.FILE_URI //存储照片的数据/路径
+        destinationType: 1 //存储照片的数据/0data 1url 2 native url// 路径
     });
 
     function takePictureSuccess(imageURI) {
@@ -86,12 +99,15 @@ function capturePictures() {
         var image = document.getElementById(id);
         image.src = imageURI;
         setMap(id, imageURI);
+        $("#newgoods-section-" + id).css("display", "inline-block");
+
     }
 
 //获取文件失败
     function takePictureFail(message) {
         alert('获取拍照文件失败:' + message);
     }
+
     hideDg();
 }
 
@@ -153,3 +169,49 @@ function submitPicture(type) {
     });
 
 }
+
+
+//修改页面专用
+/**
+ * 显示4 张图片
+ */
+function showModify() {
+    var id = getParam("id");
+    $.ajax({
+        url: url + '/app/detailCommodity',
+        type: "POST",
+        data: {
+            "id": id
+        },
+        dataType: "jsonp", //返回JSONP格式的数据，此值固定
+        jsonp: "callback", //回调函数的名字，此值固定
+        timeout: 30000,
+        success: function (data) {
+            if (data.result === 'success') {
+                var businessCommodityInfo = data.data.businessCommodityInfo;
+                var commodityImg = businessCommodityInfo.commodityImg;
+                var commodityBrandImg = businessCommodityInfo.commodityBrandImg;
+                var commodityInnerImg = businessCommodityInfo.commodityInnerImg;
+                var commodityOtherImg = businessCommodityInfo.commodityOtherImg;
+                modifyShowPicture(picturePath, "commodityImg", commodityImg);
+                modifyShowPicture(picturePath, "commodityBrandImg", commodityBrandImg);
+                modifyShowPicture(picturePath, "commodityInnerImg", commodityInnerImg);
+                modifyShowPicture(picturePath, "commodityOtherImg", commodityOtherImg);
+            } else {
+                alert(data.message);
+            }
+        }
+    });
+}
+
+function modifyShowPicture(picturePath, id, imageURI) {
+    if (id === null || id === undefined) {
+        return;
+    }
+    var image = document.getElementById(id);
+    image.src = url + '/app/image?imageName='+imageURI;
+    $("#newgoods-section-" + id).css("display", "inline-block");
+}
+var srcUrl = appJP.urlReqImg +"?log_id="+row.log_id;
+var imgWindow = $("#imgDetail").html("<img src="+srcUrl+">");
+$("#showImg").window({title:"图片详情",width:"auto"}).window("open").window("center");

@@ -232,14 +232,6 @@ module.exports = [
         "clobbers": [
             "window.FileTransfer"
         ]
-    },
-    {
-        "file": "plugins/cordova-plugin-backbutton/www/Backbutton.js",
-        "id": "cordova-plugin-backbutton.Backbutton",
-        "pluginId": "cordova-plugin-backbutton",
-        "clobbers": [
-            "navigator.Backbutton"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -248,8 +240,7 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-camera": "4.0.1",
     "cordova-plugin-file": "5.0.0",
-    "cordova-plugin-file-transfer": "1.7.0",
-    "cordova-plugin-backbutton": "0.3.0"
+    "cordova-plugin-file-transfer": "1.7.0"
 }
 // BOTTOM OF METADATA
 });

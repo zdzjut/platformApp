@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增商品</title>
+    <!--引入手机页面适配-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../css/NewGoods-app2.css">
+    <!-- 文件传输 -->
+    <script type="text/javascript" src="../../cordova.js"></script>
+    <script src="../../js/jquery-1.11.3.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/index.js"></script>
+    <script type="text/javascript" src="../../js/commodity/NewGoods-app.js"></script>
+    <script type="text/javascript" src="../../js/commodity/ModifyGoods-app2.js"></script>
+
+</head>
+<body onload="showModify()">
+<div id="order-all">
+    <header>
+        <div class="newgoods-top">
+            <ul>
+                <li class="newgoods-top-i">
+                    <a href="javascript:void(0)" onclick="back()"><i></i></a>
+                </li>
+                <li class="newgoods-top-h">
+                    <h1>新增商品</h1>
+                </li>
+                <li class="newgoods-top-b"></li>
+            </ul>
+        </div>
+        <div class="newgoods-footer">
+            <div class="newgoods-footer-div">
+                <span></span>
+                <p>产品图片</p>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="newgoods-section-box" >
+            <ul>
+                <li class="show">
+                    <p>产品(含配件)整体外观图</p>
+                    <div  onclick="show('commodityImg')">
+                        <img id="commodityImg"/>
+                    </div>
+
+                    <i id="newgoods-section-commodityImg" onclick="removePictureShow('commodityImg')"></i>
+                </li>
+                <li class="show">
+                    <p>品牌图片</p>
+                    <div  onclick="show('commodityBrandImg')">
+                        <img id="commodityBrandImg"/>
+
+                    </div>
+                    <i id="newgoods-section-commodityBrandImg"  onclick="removePictureShow('commodityBrandImg')"></i>
+                </li>
+                <li class="show">
+                    <p>产品内包装图</p>
+                    <div onclick="show('commodityInnerImg')">
+                        <img id="commodityInnerImg"/>
+
+                    </div>
+                    <i id="newgoods-section-commodityInnerImg"  onclick="removePictureShow('commodityInnerImg')"></i>
+                </li>
+                <li class="show">
+                    <p>其他产品图</p>
+                    <div onclick="show('commodityOtherImg')">
+                        <img id="commodityOtherImg"/>
+                    </div>
+                    <i id="newgoods-section-commodityOtherImg"  onclick="removePictureShow('commodityOtherImg')"></i>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="newgoods-section-button">
+        <button onclick="submitPicture(1)">暂存</button>
+        <button onclick="submitPicture(2)">提交</button>
+    </div>
+    <div class="overlay" id="overplay"></div>
+    <div class="mask">
+        <ul>
+            <li onclick="capturePictures()">拍摄</li>
+            <li onclick="fetchPictures()">从手机相册中选择</li>
+            <li class="dialog" onclick="dialog()">取消</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

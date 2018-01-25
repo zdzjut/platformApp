@@ -45,7 +45,7 @@
         <div class="newgoods-top">
             <ul>
                 <li class="newgoods-top-i">
-                    <a href="javascript:void(0)"><i></i></a>
+                    <a href="javascript:void(0)" onclick="back()"><i></i></a>
                 </li>
                 <li class="newgoods-top-h">
                     <h1>新增商品</h1>
@@ -68,7 +68,8 @@
                     <div  onclick="show('commodityImg')">
                         <img id="commodityImg"/>
                     </div>
-                    <i class="newgoods-section-i"></i>
+
+                    <i id="newgoods-section-commodityImg" onclick="removePictureShow('commodityImg')"></i>
                 </li>
                 <li class="show">
                     <p>品牌图片</p>
@@ -76,7 +77,7 @@
                         <img id="commodityBrandImg"/>
 
                     </div>
-                    <i class="newgoods-section-i"></i>
+                    <i id="newgoods-section-commodityBrandImg"  onclick="removePictureShow('commodityBrandImg')"></i>
                 </li>
                 <li class="show">
                     <p>产品内包装图</p>
@@ -84,15 +85,14 @@
                         <img id="commodityInnerImg"/>
 
                     </div>
-                    <i></i>
+                    <i id="newgoods-section-commodityInnerImg"  onclick="removePictureShow('commodityInnerImg')"></i>
                 </li>
                 <li class="show">
                     <p>其他产品图</p>
                     <div onclick="show('commodityOtherImg')">
                         <img id="commodityOtherImg"/>
-
                     </div>
-                    <i class="newgoods-section-i"></i>
+                    <i id="newgoods-section-commodityOtherImg"  onclick="removePictureShow('commodityOtherImg')"></i>
                 </li>
             </ul>
         </div>

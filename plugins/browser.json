@@ -15,9 +15,6 @@
     },
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.gmgyl.platform"
-    },
-    "cordova-plugin-backbutton": {
-      "PACKAGE_NAME": "com.gmgyl.platform"
     }
   },
   "dependent_plugins": {
