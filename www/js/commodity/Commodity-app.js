@@ -40,6 +40,9 @@ function modify(id) {
 
 //删除此项
 function changeDeleteFlag(id) {
+    if (!confirm("确认删除")) {
+        return;
+    }
     getContent();
     $.ajax({
         url: url + "/app/deleteCommodity",
@@ -78,6 +81,7 @@ function clickSearch() {
     getContent();
     location.href = "../../html/commodity/Commodity-app.html";
 }
+
 //回车键模糊查询
 $("#search-input").keydown(function (e) {
     if (e.keyCode === 13) {

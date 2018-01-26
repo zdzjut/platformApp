@@ -38,10 +38,21 @@ function back() {
 
 //显示图片
 function modifyShowPicture(id, imageName) {
-    if (id === null || id === undefined) {
+    var image = document.getElementById(id);
+    if (imageName === null || imageName === undefined) {
+        image.src = "";
         return;
     }
-    var image = document.getElementById(id);
     image.src = url + '/images/' + imageName;
     $("#newgoods-section-" + id).css("display", "inline-block");
+}
+//等待 毫秒
+function sleep(numberMillis) {
+    var now = new Date();
+    var exitTime = now.getTime() + numberMillis;
+    while (true) {
+        now = new Date();
+        if (now.getTime() > exitTime)
+            return;
+    }
 }

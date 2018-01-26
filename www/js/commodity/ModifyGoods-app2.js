@@ -20,6 +20,7 @@ function showModify() {
                 var commodityBrandImg = businessCommodityInfo.commodityBrandImg;
                 var commodityInnerImg = businessCommodityInfo.commodityInnerImg;
                 var commodityOtherImg = businessCommodityInfo.commodityOtherImg;
+                alert(commodityImg);
                 modifyShowPicture("commodityImg", commodityImg);
                 modifyShowPicture("commodityBrandImg", commodityBrandImg);
                 modifyShowPicture("commodityInnerImg", commodityInnerImg);
@@ -33,12 +34,15 @@ function showModify() {
 
 
 //点击右上角叉号 去除图片
-function removePictureShow(id) {
-    var image = document.getElementById(id);
-    image.removeAttribute("src");
-    $("#newgoods-section-" + id).css("display", "none");
-
-}
+//在修改页面存在：用户删除该图片的功能，叉掉后若不添加图片 需要给后台反馈
+// function removePictureShow(id) {
+//     var image = document.getElementById(id);
+//     image.removeAttribute("src");
+//     $("#newgoods-section-" + id).css("display", "none");
+//     var removeId = getMap("removeId");
+//     setMap("removeId", removeId === null ? id : removeId + "," + id);
+//     alert("removeId:   "+getMap("removeId"));
+// }
 
 function show(id) {
     setMap('nowId', id);
@@ -78,6 +82,7 @@ function fetchPictures() {
     });
 
     function fetchPictureSuccess(imageURI) {
+        //存储发生过改变的图片
         var id = getMap('nowId');
         var image = document.getElementById(id);
         image.src = imageURI;
@@ -118,14 +123,16 @@ function capturePictures() {
     hideDg();
 }
 
+
 /**文件上传start***/
 function modifyPicture(pictureUrl, type) {
-    if (pictureUrl === null || pictureUrl === undefined || pictureUrl === '') {
-        alert(type + 'picture this is empty');
+    //若为网络地址，返回
+    var str = pictureUrl.split(":")[0];
+    if (str === "http" || pictureUrl === null || pictureUrl === '') {
+        alert("there is  problem" + pictureUrl);
         return;
     }
     var commodityId = getMap("commodityId");
-
     var serverUri = encodeURI(url + '/app/modifyCommodityPicture?type=' + type + '&commodityId=' + commodityId);
 
     function fileTransferSuccess() {
@@ -146,6 +153,7 @@ function modifyPicture(pictureUrl, type) {
 /**文件上传end***/
 
 function submitPicture() {
+    //此处src为服务器的地址
     var commodityImg = document.getElementById('commodityImg').src;
     var commodityBrandImg = document.getElementById('commodityBrandImg').src;
     var commodityInnerImg = document.getElementById('commodityInnerImg').src;

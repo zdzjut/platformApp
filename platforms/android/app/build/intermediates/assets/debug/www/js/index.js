@@ -20,6 +20,7 @@ app.initialize();
 
 function check() {
     var token = window.localStorage.getItem('token');
+    window.localStorage.removeItem("tempId");
     if (token == null) {
         location.href = "html/Login-app.html";
     }
