@@ -113,7 +113,6 @@ function capturePictures() {
 /**文件上传start***/
 function upup(pictureUrl, type, tempId) {
     if (pictureUrl === null || pictureUrl === undefined || pictureUrl === '') {
-        alert(type + 'picture this is empty');
         return;
     }
     var serverUri = encodeURI(url + '/app/file?type=' + type + '&tempId=' + tempId);
