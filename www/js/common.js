@@ -56,3 +56,18 @@ function sleep(numberMillis) {
             return;
     }
 }
+//下拉款选中
+/**
+ *
+ * @param id 下拉框ID
+ * @param value 值
+ */
+function selectChoose(id,value) {
+    var selects = document.getElementById(id);
+    for(var i=0; i<selects.options.length; i++) {
+        if (selects.options[i].value === value) {
+            selects.options[i].selected = true;
+            break;
+        }
+    }
+}
