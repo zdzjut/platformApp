@@ -25,6 +25,14 @@ function showDetail() {
                 $('#phone').val(data.data.phone);
                 $('#declarationItems').val(businessCommodityInfo.declarationItems);
                 $('#remarks').val(businessCommodityInfo.remarks);
+                var commodityImg = businessCommodityInfo.commodityImg;
+                var commodityBrandImg = businessCommodityInfo.commodityBrandImg;
+                var commodityInnerImg = businessCommodityInfo.commodityInnerImg;
+                var commodityOtherImg = businessCommodityInfo.commodityOtherImg;
+                modifyShowPicture("commodityImg", commodityImg);
+                modifyShowPicture("commodityBrandImg", commodityBrandImg);
+                modifyShowPicture("commodityInnerImg", commodityInnerImg);
+                modifyShowPicture("commodityOtherImg", commodityOtherImg);
             } else {
                 alert(data.message);
             }

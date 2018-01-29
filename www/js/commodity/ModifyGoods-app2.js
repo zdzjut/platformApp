@@ -20,7 +20,6 @@ function showModify() {
                 var commodityBrandImg = businessCommodityInfo.commodityBrandImg;
                 var commodityInnerImg = businessCommodityInfo.commodityInnerImg;
                 var commodityOtherImg = businessCommodityInfo.commodityOtherImg;
-                alert(commodityImg);
                 modifyShowPicture("commodityImg", commodityImg);
                 modifyShowPicture("commodityBrandImg", commodityBrandImg);
                 modifyShowPicture("commodityInnerImg", commodityInnerImg);
@@ -129,7 +128,6 @@ function modifyPicture(pictureUrl, type) {
     //若为网络地址，返回
     var str = pictureUrl.split(":")[0];
     if (str === "http" || pictureUrl === null || pictureUrl === '') {
-        alert("there is  problem" + pictureUrl);
         return;
     }
     var commodityId = getMap("commodityId");
