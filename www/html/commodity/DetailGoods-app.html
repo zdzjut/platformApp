@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>新增商品</title>
+    <title>商品详情</title>
     <!--引入手机页面适配-->
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <link rel="stylesheet" href="../../css/NewGoods-app.css">
@@ -19,20 +19,14 @@
                 <li class="newgoods-top-i">
                     <a href="javascript:void(0)" onclick="back()"><i></i></a>
                 </li>
-                <li class="newgoods-top-h">
-                    <h1>商品详情</h1>
+                <li class="newgoods-top-p">
+                    <p>商品详情</p>
                 </li>
                 <li class="newgoods-top-b"></li>
             </ul>
         </div>
-        <div class="newgoods-footer">
-            <div class="newgoods-footer-div">
-                <span></span>
-                <p>产品信息</p>
-            </div>
-        </div>
     </header>
-    <section>
+    <section style="margin-top: 55px;">
         <div class="newgoods-section">
             <dl class="newgoods-section-dl">
                 <dt><span class="f_c">*</span>中文品名：</dt>
@@ -114,10 +108,45 @@
                 </dd>
             </dl>
         </div>
+
+        <div class="newgoods-section-box">
+            <ul>
+                <li class="show">
+                    <p>产品(含配件)整体外观图</p>
+                    <div  onclick="show('commodityImg')">
+                        <img id="commodityImg"/>
+                    </div>
+
+                    <i id="newgoods-section-commodityImg" onclick="removePictureShow('commodityImg')"></i>
+                </li>
+                <li class="show">
+                    <p>品牌图片</p>
+                    <div  onclick="show('commodityBrandImg')">
+                        <img id="commodityBrandImg"/>
+
+                    </div>
+                    <i id="newgoods-section-commodityBrandImg"  onclick="removePictureShow('commodityBrandImg')"></i>
+                </li>
+                <li class="show">
+                    <p>产品内包装图</p>
+                    <div onclick="show('commodityInnerImg')">
+                        <img id="commodityInnerImg"/>
+
+                    </div>
+                    <i id="newgoods-section-commodityInnerImg"  onclick="removePictureShow('commodityInnerImg')"></i>
+                </li>
+                <li class="show">
+                    <p>其他产品图</p>
+                    <div onclick="show('commodityOtherImg')">
+                        <img id="commodityOtherImg"/>
+                    </div>
+                    <i id="newgoods-section-commodityOtherImg"  onclick="removePictureShow('commodityOtherImg')"></i>
+                </li>
+            </ul>
+        </div>
+
     </section>
-    <footer>
-        <button class="newgoods-button" onclick="back()">返回</button>
-    </footer>
+
 </div>
 
 </body>

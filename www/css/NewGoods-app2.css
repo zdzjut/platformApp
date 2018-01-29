@@ -10,7 +10,6 @@ article, aside, details, figcaption, figure, dialog, footer, header, hgroup, men
     display: block;
 }
 body {
-    font-size: 12px;
     color: #333;
     background: #fff;
     font-family: "Microsoft YaHei", "simsun", "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -83,7 +82,6 @@ header{
     background: #3481ED;
     line-height: 45px;
     color: #fff;
-    font-size: 17px;
 }
 .newgoods-top li{
     float:left;
@@ -92,7 +90,7 @@ header{
 .newgoods-top-i{
     width:30%;
 }
-.newgoods-top-h{
+.newgoods-top-p{
     width:40%;
     text-align: center;
 }
@@ -140,9 +138,9 @@ section{
     margin-left: 8%;
 }
 .newgoods-section-box li{
-    width: 166px;
+    display: inline-block;
+    width: 49%;
     height: 155px;
-    float: left;
     margin-top: 15px;
 }
 .newgoods-section-box li>p{
