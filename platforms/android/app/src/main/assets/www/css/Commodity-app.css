@@ -3,13 +3,13 @@ body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
     margin: 0;
     padding: 0;
     border: 0;
+    font-size: 14px;
     vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section {
     display: block;
 }
 body {
-    font-size: 12px;
     color: #333;
     background: #fff;
     font-family: "Microsoft YaHei", "simsun", "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -79,7 +79,6 @@ header{
     background: #3481ED;
     line-height: 45px;
     color: #fff;
-    font-size: 17px;
 }
 .commodity-top li{
     float:left;
@@ -88,7 +87,7 @@ header{
 .commodity-top-i{
     width:30%;
 }
-.commodity-top-h{
+.commodity-top-p{
     width:40%;
     text-align: center;
 }
@@ -168,4 +167,9 @@ section{
 }
 .commodity-id{
     display: none;
+}
+
+.chinese-name{
+    text-overflow:ellipsis;
+    overflow:hidden;
 }
