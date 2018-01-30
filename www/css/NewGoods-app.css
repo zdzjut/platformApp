@@ -243,4 +243,13 @@ footer{
     left: 122px;
 }
 
+/*单选框单独样式*/
+.newgoods-radio{
+    height:30px;
+    line-height:30px;
+}
+.newgoods-radio input{
+    width:auto;
+    height:auto;
+}
 

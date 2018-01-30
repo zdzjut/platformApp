@@ -152,6 +152,9 @@ section{
     margin-top: 95px;
     background-color: #fff;
 }
+.commodity-tbody{
+
+}
 .commodity-td>i{
     display: inline-block;
     width:12px;
