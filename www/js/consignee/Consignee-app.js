@@ -25,7 +25,7 @@ function search() {
                 } else if (flag === -2022109401) {
                     wf = '暂存';
                 }
-                var newRow = "<tr><td class='chinese-name' onclick='detail(" + list[i].id + ")'>" + list[i].consigneeName + "</td><td class='customs-code'>" + list[i].consigneePeople + "</td><td class='process-state'>" + wf
+                var newRow = "<tr><td class='chinese-name' onclick='detail(" + list[i].id + ")'>" + list[i].consigneeName + "</td><td class='customs-code'>" + list[i].consigneeAddress + "</td><td class='process-state'>" + wf
                     + "</td><td class='commodity-td'>" + "<i class='commodity-edit' onclick='modify(" + list[i].id + ")'></i><b class='disappear-b' onclick='changeDeleteFlag(" + list[i].id + ")'></b></td>";
                 $('#commodity-tbody').append(newRow);
             }
@@ -33,40 +33,43 @@ function search() {
         }
     });
 }
+
 //
 // function modify(id) {
 //     location.href = "../../html/commodity/ModifyGoods-app.html?id=" + id;
 // }
 //
-// //删除此项
-// function changeDeleteFlag(id) {
-//     getContent();
-//     $.ajax({
-//         url: url + "/app/deleteCommodity",
-//         type: "post",
-//         data: {
-//             'id': id
-//         },
-//         dataType: "jsonp", //返回JSONP格式的数据，此值固定
-//         jsonp: "callback", //回调函数的名字，此值固定
-//         timeout: 30000,
-//         success: function (data) {
-//             if (data.result === 'success') {
-//                 location.href = "../../html/commodity/Commodity-app.html";
-//             } else {
-//                 alert(data.message);
-//             }
-//         },
-//         error: function () {
-//             alert("未知错误");
-//         }
-//     });
-// }
+//删除此项
+function changeDeleteFlag(id) {
+    getContent();
+    $.ajax({
+        url: url + "/app/deleteConsignee",
+        type: "post",
+        data: {
+            'id': id
+        },
+        dataType: "jsonp", //返回JSONP格式的数据，此值固定
+        jsonp: "callback", //回调函数的名字，此值固定
+        timeout: 30000,
+        success: function (data) {
+            if (data.result === 'success') {
+                location.href = "../../html/consignee/Consignee-app.html";
+            } else {
+                alert(data.message);
+            }
+        },
+        error: function () {
+            alert("未知错误");
+        }
+    });
+}
 
 /*搜索框清空设置*/
 function clearKeyword() {
-    $(".content").val('');
-    location.href = "../../html/consignee/Consignee-app.html";
+    if ('' !== $(".content").val()) {
+        $(".content").val('');
+        location.href = "../../html/consignee/Consignee-app.html";
+    }
 }
 
 function detail(id) {
@@ -78,6 +81,7 @@ function clickSearch() {
     getContent();
     location.href = "../../html/consignee/Consignee-app.html";
 }
+
 //回车键模糊查询
 $("#search-input").keydown(function (e) {
     if (e.keyCode === 13) {

@@ -168,3 +168,8 @@ section{
 .commodity-id{
     display: none;
 }
+
+.chinese-name{
+    text-overflow:ellipsis;
+    overflow:hidden;
+}

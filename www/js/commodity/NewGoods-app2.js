@@ -89,7 +89,7 @@ function capturePictures() {
     navigator.camera.getPicture(takePictureSuccess, takePictureFail, {
         quality: 50,
         sourceType: 1,       //拍照
-        destinationType: 1 //存储照片的数据/0data 1url 2 native url// 路径
+        destinationType: 1 //存储照片的数据/0data 1url 2native url// 路径
     });
 
     function takePictureSuccess(imageURI) {
@@ -133,6 +133,9 @@ function upup(pictureUrl, type, tempId) {
 }
 
 function submitPicture(type) {
+    if (!confirm("确认提交,请勿多次提交")){
+        return;
+    }
     // var commodityImg = document.getElementById('commodityImg').src;
     // var commodityBrandImg = document.getElementById('commodityBrandImg').src;
     // var commodityInnerImg = document.getElementById('commodityInnerImg').src;

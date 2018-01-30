@@ -6,6 +6,7 @@ var app = {
     onDeviceReady: function () {
         console.log(navigator.camera);
         console.log(navigator.device.capture);
+        document.addEventListener("backbutton", onBackKeyDown, false);
         this.receivedEvent();
     },
     receivedEvent: function (id) {

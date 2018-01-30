@@ -68,8 +68,10 @@ function changeDeleteFlag(id) {
 
 /*搜索框清空设置*/
 function clearKeyword() {
-    $(".content").val('');
-    location.href = "../../html/commodity/Commodity-app.html";
+    if ('' !== $(".content").val()) {
+        $(".content").val('');
+        location.href = "../../html/commodity/Commodity-app.html";
+    }
 }
 
 function detail(id) {

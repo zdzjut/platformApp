@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Jan 29 16:44:56 CST 2018
+#Tue Jan 30 11:03:16 CST 2018
 60.set=ASSET
 52.set=ANDROID_RESOURCE
 53.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
@@ -39,6 +39,7 @@
 89.set=ASSET
 112.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\FileReader.js
 21.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\FileError.js
+119.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\js\\Login-app.js
 28.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\logo.png
 75.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\FileUploadOptions.js
 8.set=ANDROID_RESOURCE
@@ -73,6 +74,7 @@
 112.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 11.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\order25.png
 21.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
+119.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 28.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 75.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 41.set=ASSET
@@ -89,12 +91,13 @@
 89.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 111.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-port-xxxhdpi-v4\\screen.png
 20.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\mipmap-ldpi-v4\\icon.png
-118.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\js\\Login-app.js
+118.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\js\\commodity\\Commodity-app.js
 27.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\File.js
 74.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\cordova-js-src\\android\\nativeapiprovider.js
 6.set=ASSET
 34.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file-transfer\\www\\FileTransferError.js
 0.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
+119.set=ASSET
 44.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 81.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\mipmap-xxxhdpi-v4\\icon.png
 91.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
@@ -141,11 +144,11 @@
 69.set=ASSET
 88.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 110.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\html\\commodity\\Commodity-app.html
-117.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\js\\commodity\\Commodity-app.js
+117.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-port-hdpi-v4\\screen.png
 26.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\html\\Login-app.html
 73.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\requestFileSystem.js
 4.set=ASSET
-117.set=ASSET
+117.set=ANDROID_RESOURCE
 33.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\order1.png
 109.set=ASSET
 43.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
@@ -172,11 +175,11 @@
 3.set=ASSET
 19.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 56.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\order20.png
-116.set=ANDROID_RESOURCE
+116.set=ASSET
 66.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 108.set=ASSET
 110.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
-117.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
+117.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
 16.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\order23.png
 26.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 73.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
@@ -194,7 +197,7 @@
 80.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 59.set=ASSET
 87.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
-116.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-port-hdpi-v4\\screen.png
+116.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\js\\OrderP-app.js
 25.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\css\\Commodity-app.css
 2.set=ASSET
 72.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\order24.png
@@ -229,8 +232,8 @@
 55.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\Entry.js
 106.set=ASSET
 65.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
-count=119
-116.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
+count=120
+116.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 15.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\order12.png
 25.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 72.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
