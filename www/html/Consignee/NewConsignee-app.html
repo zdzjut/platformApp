@@ -96,10 +96,32 @@
                     </dd>
                 </dl>
             </div>
+
+            <div class="newgoods-section-box" >
+                <ul>
+                    <li class="show">
+                        <p>证件照原型</p>
+                        <div  onclick="show('commodityImg')">
+                            <img id="commodityImg"/>
+                        </div>
+
+                        <i id="newgoods-section-commodityImg" onclick="removePictureShow('commodityImg')"></i>
+                    </li>
+                </ul>
+            </div>
         </section>
-        <footer>
-            <button class="newgoods-button" onclick="next()">下一步</button>
-        </footer>
+        <div class="newgoods-section-button">
+            <button onclick="submitPicture(1)">暂存</button>
+            <button onclick="submitPicture(2)">提交</button>
+        </div>
+        <div class="overlay" id="overplay"></div>
+        <div class="mask">
+            <ul>
+                <li onclick="capturePictures()">拍摄</li>
+                <li onclick="fetchPictures()">从手机相册中选择</li>
+                <li class="dialog" onclick="dialog()">取消</li>
+            </ul>
+        </div>
     </div>
     <script src="../../js/commodity/NewGoods-app.js"></script>
 </body>

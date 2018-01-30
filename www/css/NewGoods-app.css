@@ -253,3 +253,55 @@ footer{
     height:auto;
 }
 
+.newgoods-section-button{
+    width:100%;
+    background:#fff;
+    height: 80px;
+    line-height: 80px;
+    text-align: right;
+}
+.newgoods-section-button>button{
+    width:75px;
+    height:30px;
+    border-radius: 5px;
+    background-color: #7bb4fb;
+    border: none;
+    color: #fff;
+    margin-right: 3%;
+}
+button:hover{
+    background:#3481ED;
+}
+
+
+/*弹出框样式*/
+.overlay{
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0.5;
+    filter:alpha(opacity=30);
+    z-index:9;
+    -moz-opacity:0.5;
+}
+.mask{
+    display:none;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    height:125px;
+    background:#fff;
+    z-index:15;
+}
+.mask li{
+    width:100%;
+    line-height: 40px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    font-size: 15px;
+}
+
