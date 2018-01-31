@@ -34,13 +34,16 @@ function search() {
     });
 }
 
-//
-// function modify(id) {
-//     location.href = "../../html/commodity/ModifyGoods-app.html?id=" + id;
-// }
-//
+
+function modify(id) {
+    location.href = "../../html/consignee/ModifyConsignee-app.html?id=" + id;
+}
+
 //删除此项
 function changeDeleteFlag(id) {
+    if (!confirm("确认删除")){
+        return;
+    }
     getContent();
     $.ajax({
         url: url + "/app/deleteConsignee",
@@ -73,7 +76,7 @@ function clearKeyword() {
 }
 
 function detail(id) {
-    location.href = "../../html/consignee/DetailGoods-app.html?id=" + id;
+    location.href = "../../html/consignee/DetailConsignee-app.html?id=" + id;
 }
 
 //模糊查询

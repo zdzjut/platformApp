@@ -124,16 +124,16 @@ function capturePictures() {
 
 
 /**文件上传start***/
-function modifyPicture(pictureUrl, type) {
+function modifyPicture(pictureUrl, type, wfStatus) {
     //若为网络地址，返回
     var str = pictureUrl.split(":")[0];
     if (str === "http" || pictureUrl === null || pictureUrl === '') {
         return;
     }
     var commodityId = getMap("commodityId");
-    var serverUri = encodeURI(url + '/app/modifyCommodityPicture?type=' + type + '&commodityId=' + commodityId);
+    var serverUri = encodeURI(url + '/app/modifyCommodityPicture?type=' + type + '&commodityId=' + commodityId + "&wfStatus=" + wfStatus);
 
-    function fileTransferSuccess() {
+    function fileTransferSuccess(result) {
     }
 
     function fileTransferError(error) {
@@ -150,16 +150,16 @@ function modifyPicture(pictureUrl, type) {
 
 /**文件上传end***/
 
-function submitPicture() {
+function submitPicture(wfStatus) {
     //此处src为服务器的地址
     var commodityImg = document.getElementById('commodityImg').src;
     var commodityBrandImg = document.getElementById('commodityBrandImg').src;
     var commodityInnerImg = document.getElementById('commodityInnerImg').src;
     var commodityOtherImg = document.getElementById('commodityOtherImg').src;
-    modifyPicture(commodityImg, 'commodityImg');
-    modifyPicture(commodityBrandImg, 'commodityBrandImg');
-    modifyPicture(commodityInnerImg, 'commodityInnerImg');
-    modifyPicture(commodityOtherImg, 'commodityOtherImg');
+    modifyPicture(commodityImg, 'commodityImg', wfStatus);
+    modifyPicture(commodityBrandImg, 'commodityBrandImg', wfStatus);
+    modifyPicture(commodityInnerImg, 'commodityInnerImg', wfStatus);
+    modifyPicture(commodityOtherImg, 'commodityOtherImg', wfStatus);
 
     removeMap("commodityId");
     location.href = "../../html/commodity/Commodity-app.html";

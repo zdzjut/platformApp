@@ -21,7 +21,6 @@ app.initialize();
 
 function check() {
     var token = window.localStorage.getItem('token');
-    window.localStorage.removeItem("tempId");
     if (token == null) {
         location.href = "html/Login-app.html";
     }
@@ -36,7 +35,7 @@ function check() {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                alert('登录成功');
+                // window.plugins.toast.showShortCenter("登录成功");
                 location.href = "html/OrderP-app.html";
             } else {
                 alert('前往登录');

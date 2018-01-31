@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增收货人</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../css/NewGoods-app.css">
+    <script type="text/javascript" src="../../cordova.js"></script>
+    <script src="../../js/jquery-1.11.3.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/consignee/CreateConsignee-app.js"></script>
+</head>
+<body>
+    <div id="order-all">
+        <header>
+            <div class="newgoods-top">
+                <ul>
+                    <li class="newgoods-top-i">
+                        <a href="Consignee-app.html"><i></i></a>
+                    </li>
+                    <li class="newgoods-top-p">
+                        <p>新增收货人</p>
+                    </li>
+                    <li class="newgoods-top-b"></li>
+                </ul>
+            </div>
+            <div class="newgoods-footer">
+                <div class="newgoods-footer-div">
+                    <span></span>
+                    <p>基本资料</p>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="newgoods-section">
+                <dl class="newgoods-section-dl">
+                    <dt><span class="f_c">*</span>业务类型：</dt>
+                    <dd class="newgoods-radio">
+                        <input type="radio"  name="financingType" value="-2022109101"/>贷款融资(含税款融资)
+                        <input type="radio"  name="financingType" value="-2022109102"/>税款融资
+                    </dd>
+                </dl>
+                <dl class="newgoods-section-dl">
+                    <dt><span class="f_c">*</span>收货人：</dt>
+                    <dd>
+                        <input type="text" placeholder="  请输入收货人名称" id="consigneeName" name="consigneeName"/>
+                    </dd>
+                </dl>
+                <dl class="newgoods-section-dl">
+                    <dt><span class="f_c">*</span>国别：</dt>
+                    <dd>
+                        <select name="consigneeCountry" id="consigneeCountry">
+                            <option value="选择国家"> </option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl class="newgoods-section-dl">
+                    <dt><span class="f_c">*</span>城市：</dt>
+                    <dd>
+                        <input type="text" placeholder="  请输入城市"  id="consigneeCity" name="consigneeCity"/>
+                    </dd>
+                </dl>
+                <dl class="newgoods-section-dl">
+                    <dt><span class="f_c">*</span>详细地址：</dt>
+                    <dd>
+                        <input type="text" placeholder="  请输入详细地址"  id="consigneeAddress" name="consigneeAddress" />
+                    </dd>
+                </dl>
+                <dl class="newgoods-section-dl">
+                    <dt><span class="f_c"></span>注册登记号：</dt>
+                    <dd>
+                        <input type="text" placeholder="  请输入注册登记号" id="registerNo" name="registerNo"/>
+                    </dd>
+                </dl>
+                <dl class="newgoods-section-dl">
+                    <dt><span class="f_c"></span>联系人：</dt>
+                    <dd>
+                        <input type="text" placeholder="  请输入联系人" id="consigneePeople"  name="consigneePeople"/>
+                    </dd>
+                </dl>
+                <dl class="newgoods-section-dl">
+                    <dt><span class="f_c"></span>联系电话：</dt>
+                    <dd>
+                        <input type="text" placeholder="  请输入联系电话" id="contactPhone" name="contactPhone"/>
+                    </dd>
+                </dl>
+                <dl class="newgoods-section-dl">
+                    <dt><span class="f_c"></span>邮箱：</dt>
+                    <dd>
+                        <input type="text" placeholder="  请输入邮箱" id="consigneeEmail" name="consigneeEmail"/>
+                    </dd>
+                </dl>
+                <dl class="newgoods-section-textarea">
+                    <dt><span class="f_c"></span>备注：</dt>
+                    <dd>
+                        <textarea name="remarks" id="remarks"></textarea>
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="newgoods-section-box" >
+                <ul>
+                    <li class="show">
+                        <p>证件照原型</p>
+                        <div  onclick="show('consigneeImg')">
+                            <img id="consigneeImg"/>
+                        </div>
+
+                        <i id="newgoods-section-consigneeImg" onclick="removePictureShow('consigneeImg')"></i>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <div class="newgoods-section-button">
+            <button onclick="submitConsignee(-2022109401)">暂存</button>
+            <button onclick="submitConsignee(-2022109402)">提交</button>
+        </div>
+        <div class="overlay" id="overplay"></div>
+        <div class="mask">
+            <ul>
+                <li onclick="capturePictures()">拍摄</li>
+                <li onclick="fetchPictures()">从手机相册中选择</li>
+                <li class="dialog" onclick="dialog()">取消</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
