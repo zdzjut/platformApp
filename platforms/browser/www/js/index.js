@@ -6,13 +6,13 @@ var app = {
     onDeviceReady: function () {
         console.log(navigator.camera);
         console.log(navigator.device.capture);
-        document.addEventListener("backbutton", onBackKeyDown, false);
         this.receivedEvent();
     },
     receivedEvent: function (id) {
         console.log('Received Event: ' + id);
     }
 };
+
 // var url = 'http://192.168.1.5:7087';
 var url = 'http://192.168.2.120:7087';
 // var url = 'http://122.226.221.26:7088';
@@ -21,7 +21,6 @@ app.initialize();
 
 function check() {
     var token = window.localStorage.getItem('token');
-    window.localStorage.removeItem("tempId");
     if (token == null) {
         location.href = "html/Login-app.html";
     }
@@ -36,7 +35,7 @@ function check() {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                alert('登录成功');
+                // window.plugins.toast.showShortCenter("登录成功");
                 location.href = "html/OrderP-app.html";
             } else {
                 alert('前往登录');

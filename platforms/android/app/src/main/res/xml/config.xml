@@ -18,6 +18,9 @@
     <feature name="BackbuttonPlugin">
         <param name="android-package" value="com.badrit.Backbutton.BackbuttonPlugin" />
     </feature>
+    <feature name="Toast">
+        <param name="android-package" value="nl.xservices.plugins.Toast" />
+    </feature>
     <name>PlatformApp</name>
     <description>
        外综平台移动APP

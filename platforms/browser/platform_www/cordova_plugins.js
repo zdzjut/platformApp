@@ -240,6 +240,19 @@ module.exports = [
         "clobbers": [
             "navigator.Backbutton"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-x-toast/www/Toast.js",
+        "id": "cordova-plugin-x-toast.Toast",
+        "pluginId": "cordova-plugin-x-toast",
+        "clobbers": [
+            "window.plugins.toast"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-x-toast/test/tests.js",
+        "id": "cordova-plugin-x-toast.tests",
+        "pluginId": "cordova-plugin-x-toast"
     }
 ];
 module.exports.metadata = 
@@ -249,7 +262,8 @@ module.exports.metadata =
     "cordova-plugin-camera": "4.0.1",
     "cordova-plugin-file": "5.0.0",
     "cordova-plugin-file-transfer": "1.7.0",
-    "cordova-plugin-backbutton": "0.3.0"
+    "cordova-plugin-backbutton": "0.3.0",
+    "cordova-plugin-x-toast": "2.6.0"
 }
 // BOTTOM OF METADATA
 });
