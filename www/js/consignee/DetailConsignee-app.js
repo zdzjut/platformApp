@@ -11,12 +11,10 @@ function showDetail() {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                // clientId: clientId,
                 var businessConsignee = data.data;
-                $('#financingType').val(businessConsignee.financingType);
+                $('#financingType').val(businessConsignee.financingType === -2022109101 ? '贷款融资(含税款融资)' : '税款融资');
                 $('#consigneeName').val(businessConsignee.consigneeName);
                 $('#consigneeCountry').val(businessConsignee.subGmUsdBankAccount);
-
                 $('#consigneeCity').val(businessConsignee.consigneeCity);
                 $('#consigneeAddress').val(businessConsignee.consigneeAddress);
                 $('#registerNo').val(businessConsignee.registerNo);
@@ -25,8 +23,8 @@ function showDetail() {
                 $('#consigneeEmail').val(businessConsignee.consigneeEmail);
                 $('#wfStatus').val(businessConsignee.wfStatus);
                 $('#remarks').val(businessConsignee.remarks);
-                var consigneeImg =businessConsignee.consigneeImg;
-                modifyShowPicture("consigneeImg",consigneeImg)
+                var consigneeImg = businessConsignee.consigneeImg;
+                modifyShowPicture("consigneeImg", consigneeImg)
             } else {
                 alert(data.message);
             }

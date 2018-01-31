@@ -78,7 +78,6 @@ function sleep(numberMillis) {
             return;
     }
 }
-//下拉款选中
 /**
  *
  * @param id 下拉框ID

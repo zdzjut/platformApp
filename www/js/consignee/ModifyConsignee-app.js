@@ -1,29 +1,29 @@
-//载入国家列表
-$.ajax({
-    url: url + "/app/listCountry",
-    type: "post",
-    data: {},
-    dataType: "jsonp", //返回JSONP格式的数据，此值固定
-    jsonp: "callback", //回调函数的名字，此值固定
-    timeout: 30000,
-    success: function (data) {
-        if (data.result === 'success') {
-            var list = data.data;
-            for (var i = 0; i < list.length; i++) {
-                var name = list[i].name;
-                var id = list[i].id;
-                var newRow = "<option value='" + id + "'>" + name + "</option>";
-                $('#consigneeCountry').append(newRow);
-            }
-        } else {
-            alert(data.message);
-        }
-    }
-});
 //显示详情
 function showDetail() {
+    //载入国家列表
+    $.ajax({
+        url: url + "/app/listCountry",
+        type: "post",
+        data: {},
+        dataType: "jsonp", //返回JSONP格式的数据，此值固定
+        jsonp: "callback", //回调函数的名字，此值固定
+        timeout: 30000,
+        success: function (data) {
+            if (data.result === 'success') {
+                var list = data.data;
+                for (var i = 0; i < list.length; i++) {
+                    var name = list[i].name;
+                    var id = list[i].id;
+                    var newRow = "<option value='" + id + "'>" + name + "</option>";
+                    $('#consigneeCountry').append(newRow);
+                }
+            } else {
+                alert(data.message);
+            }
+        }
+    });
     var id = getParam("id");
-    setMap("consigneeId",id);
+    setMap("consigneeId", id);
     $.ajax({
         url: url + '/app/detailConsignee',
         type: "POST",
@@ -35,11 +35,14 @@ function showDetail() {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                // clientId: clientId,
                 var businessConsignee = data.data;
-                $('#financingType').val(businessConsignee.financingType);
+                var i = businessConsignee.financingType === -2022109101 ? 0 : 1;
+                $("input[type='radio'][name='financingType']:eq(" + i + ")").attr("checked", "checked");
                 $('#consigneeName').val(businessConsignee.consigneeName);
-                selectChoose('consigneeCountry',businessConsignee.consigneeCountry);
+                var countryNo = businessConsignee.updator;
+                var selects = document.getElementById("consigneeCountry");
+                selects.options[countryNo].selected = true;
+                // selectChoose('consigneeCountry', businessConsignee.consigneeCountry);
                 $('#consigneeCity').val(businessConsignee.consigneeCity);
                 $('#consigneeAddress').val(businessConsignee.consigneeAddress);
                 $('#registerNo').val(businessConsignee.registerNo);
@@ -48,8 +51,8 @@ function showDetail() {
                 $('#consigneeEmail').val(businessConsignee.consigneeEmail);
                 $('#wfStatus').val(businessConsignee.wfStatus);
                 $('#remarks').val(businessConsignee.remarks);
-                var consigneeImg =businessConsignee.consigneeImg;
-                modifyShowPicture("consigneeImg",consigneeImg)
+                var consigneeImg = businessConsignee.consigneeImg;
+                modifyShowPicture("consigneeImg", consigneeImg)
             } else {
                 alert(data.message);
             }
@@ -66,7 +69,6 @@ function submitConsignee(wfStatus) {
     var consigneeId = getMap("consigneeId");
     //先上传修改后的图片，并关联到收货人
     modifyConsigneePicture(consigneeId);
-    removeMap("consigneeId");
     var clientId = getMap('clientId');
     var financingType = $('input:radio:checked').val();
     var consigneeName = $('#consigneeName').val();
@@ -80,7 +82,7 @@ function submitConsignee(wfStatus) {
     var remarks = $('#remarks').val();
     //先不判断
     $.ajax({
-        url: url + "/app/insertConsignee",
+        url: url + "/app/modifyConsignee",
         type: "post",
         data: {
             clientId: clientId,
@@ -194,7 +196,7 @@ function capturePictures() {
 
 /**文件上传start***/
 function modifyConsigneePicture(consigneeId) {
-    var pictureUrl = document.getElementById('commodityImg').src;
+    var pictureUrl = document.getElementById('consigneeImg').src;
     //若为网络地址，返回
     var str = pictureUrl.split(":")[0];
     if (str === "http" || pictureUrl === null || pictureUrl === '') {

@@ -20,6 +20,13 @@ var url = 'http://192.168.2.120:7087';
 app.initialize();
 
 function check() {
+    var now = new Date();
+    var exitTime = now.getTime() + 2000;
+    while (true) {
+        now = new Date();
+        if (now.getTime() > exitTime)
+            break;
+    }
     var token = window.localStorage.getItem('token');
     if (token == null) {
         location.href = "html/Login-app.html";
