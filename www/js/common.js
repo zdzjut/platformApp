@@ -1,6 +1,28 @@
 var url = 'http://192.168.2.120:7087';
 // var url = 'http://122.226.221.26:7088';
 
+//返回
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    document.addEventListener("backbutton", onBackKeyDown, false);
+}
+
+function onBackKeyDown() {
+    window.plugins.toast.showShortCenter("再次点击，退出");
+    document.removeEventListener("backbutton", onBackKeyDown, false); // 注销返回键
+    document.addEventListener("backbutton", exitApp, false);//绑定退出事件
+    // 3秒后重新注册
+    var intervalID = window.setInterval(function () {
+        window.clearInterval(intervalID);
+        document.removeEventListener("backbutton", exitApp, false); // 注销返回键
+        document.addEventListener("backbutton", onBackKeyDown, false); // 返回键
+    }, 3000);
+}
+
+function exitApp() {
+    navigator.app.exitApp();
+}
 
 //当页面带参跳转，通过key获得参数值
 function getParam(key) {
@@ -56,7 +78,6 @@ function sleep(numberMillis) {
             return;
     }
 }
-//下拉款选中
 /**
  *
  * @param id 下拉框ID

@@ -18,9 +18,7 @@ function showDetail() {
                 $('#commodityModel').val(businessCommodityInfo.commodityModel);
                 $('#commodityBrand').val(businessCommodityInfo.commodityBrand);
                 $('#commodityEnglishName').val(businessCommodityInfo.commodityEnglishName);
-                // $('#commodityRecedeTariff').val(businessCommodityInfo.commodityRecedeTariff);
                 selectChoose('commodityRecedeTariff',businessCommodityInfo.commodityRecedeTariff);
-                // $('#commodityAppreciationTariff').val(businessCommodityInfo.commodityAppreciationTariff);
                 selectChoose('commodityAppreciationTariff',businessCommodityInfo.commodityAppreciationTariff);
 
                 $('#application').val(businessCommodityInfo.application);

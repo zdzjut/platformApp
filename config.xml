@@ -26,6 +26,7 @@
     <plugin name="cordova-plugin-camera" spec="^4.0.1" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.0" />
     <plugin name="cordova-plugin-backbutton" spec="^0.3.0" />
+    <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
     <engine name="android" spec="^7.0.0" />
     <engine name="browser" spec="^5.0.3" />
 </widget>

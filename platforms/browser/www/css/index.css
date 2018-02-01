@@ -113,3 +113,16 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+
+
+/*页面主体样式*/
+body{
+    background:url("../img/11.png");
+    text-align: center;
+}
+.guoma-section{
+    margin:0px;
+    padding:0px;
+    margin-top:120px;
+}
