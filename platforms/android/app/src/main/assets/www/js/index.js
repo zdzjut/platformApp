@@ -20,13 +20,6 @@ app.initialize();
 
 
 function check() {
-    // var now = new Date();
-    // var exitTime = now.getTime() + 2000;
-    // while (true) {
-    //     now = new Date();
-    //     if (now.getTime() > exitTime)
-    //         break;
-    // }
     var token = window.localStorage.getItem('token');
     if (token == null) {
         location.href = "html/Login-app.html";
@@ -42,14 +35,15 @@ function check() {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                jQuery(document).ready(function(){
-                    setTimeout('delayer()', 5000);
-                    //这里实现延迟5秒跳转
+                jQuery(document).ready(function () {
+                    setTimeout('delaySuccess()', 2000);
                 });
                 // location.href = "html/OrderP-app.html";
             } else {
-                alert('前往登录');
-                location.href = "html/Login-app.html";
+                jQuery(document).ready(function () {
+                    setTimeout('delayFailure()', 2000);
+                });
+
             }
         },
         error: function () {
@@ -57,6 +51,11 @@ function check() {
         }
     });
 }
-function delayer(){
+
+function delaySuccess() {
     location.href = "html/OrderP-app.html";
+}
+
+function delayFailure() {
+    location.href = "html/Login-app.html";
 }

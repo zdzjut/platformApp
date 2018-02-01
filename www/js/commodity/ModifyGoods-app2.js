@@ -32,17 +32,6 @@ function showModify() {
 }
 
 
-//点击右上角叉号 去除图片
-//在修改页面存在：用户删除该图片的功能，叉掉后若不添加图片 需要给后台反馈
-// function removePictureShow(id) {
-//     var image = document.getElementById(id);
-//     image.removeAttribute("src");
-//     $("#newgoods-section-" + id).css("display", "none");
-//     var removeId = getMap("removeId");
-//     setMap("removeId", removeId === null ? id : removeId + "," + id);
-//     alert("removeId:   "+getMap("removeId"));
-// }
-
 function show(id) {
     setMap('nowId', id);
     showDg();

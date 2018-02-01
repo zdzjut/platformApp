@@ -34,7 +34,17 @@ function check() {
         jsonp: "callback", //回调函数的名字，此值固定
         timeout: 30000,
         success: function (data) {
-            setTimeout('delayer(data.result)', 2000);
+            if (data.result === 'success') {
+                jQuery(document).ready(function () {
+                    setTimeout('delaySuccess()', 2000);
+                });
+                // location.href = "html/OrderP-app.html";
+            } else {
+                jQuery(document).ready(function () {
+                    setTimeout('delayFailure()', 2000);
+                });
+
+            }
         },
         error: function () {
             alert("请求失败");
@@ -42,11 +52,10 @@ function check() {
     });
 }
 
-function delayer(result) {
-    if (result === 'success') {
-        location.href = "html/OrderP-app.html";
-    } else {
-        location.href = "html/Login-app.html";
-    }
+function delaySuccess() {
+    location.href = "html/OrderP-app.html";
+}
 
+function delayFailure() {
+    location.href = "html/Login-app.html";
 }

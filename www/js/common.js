@@ -65,9 +65,10 @@ function modifyShowPicture(id, imageName) {
         image.src = "";
         return;
     }
-    image.src = url + '/images/' + imageName;
+    image.src = url + '/images/' + imageName + "?rubbish=" + new Date();
     $("#newgoods-section-" + id).css("display", "inline-block");
 }
+
 //等待 毫秒
 function sleep(numberMillis) {
     var now = new Date();
@@ -78,14 +79,15 @@ function sleep(numberMillis) {
             return;
     }
 }
+
 /**
  *
  * @param id 下拉框ID
  * @param value 值
  */
-function selectChoose(id,value) {
+function selectChoose(id, value) {
     var selects = document.getElementById(id);
-    for(var i=0; i<selects.options.length; i++) {
+    for (var i = 0; i < selects.options.length; i++) {
         if (selects.options[i].value === value) {
             selects.options[i].selected = true;
             break;
