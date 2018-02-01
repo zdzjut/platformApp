@@ -13,20 +13,20 @@ var app = {
     }
 };
 
-// var url = 'http://192.168.1.5:7087';
 var url = 'http://192.168.2.120:7087';
 // var url = 'http://122.226.221.26:7088';
 
 app.initialize();
 
+
 function check() {
-    var now = new Date();
-    var exitTime = now.getTime() + 2000;
-    while (true) {
-        now = new Date();
-        if (now.getTime() > exitTime)
-            break;
-    }
+    // var now = new Date();
+    // var exitTime = now.getTime() + 2000;
+    // while (true) {
+    //     now = new Date();
+    //     if (now.getTime() > exitTime)
+    //         break;
+    // }
     var token = window.localStorage.getItem('token');
     if (token == null) {
         location.href = "html/Login-app.html";
@@ -42,8 +42,11 @@ function check() {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                // window.plugins.toast.showShortCenter("登录成功");
-                location.href = "html/OrderP-app.html";
+                jQuery(document).ready(function(){
+                    setTimeout('delayer()', 5000);
+                    //这里实现延迟5秒跳转
+                });
+                // location.href = "html/OrderP-app.html";
             } else {
                 alert('前往登录');
                 location.href = "html/Login-app.html";
@@ -53,4 +56,7 @@ function check() {
             alert("请求失败");
         }
     });
+}
+function delayer(){
+    location.href = "html/OrderP-app.html";
 }
