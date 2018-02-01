@@ -62,7 +62,9 @@ a:hover {
 }
 
 /*页面样式开始*/
-body{background-color: #eee;}
+body{
+    background-color: #eee;
+}
 #order-all{
     width:100%;
 }
@@ -175,6 +177,7 @@ body{
     background:#3481ED;
     border:none;
     color:#fff;
+    outline:none;
     border-radius: 2px;
 }
 .login-logo{
