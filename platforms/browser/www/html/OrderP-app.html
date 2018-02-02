@@ -8,11 +8,24 @@
     <link rel="stylesheet" href="../css/OrderP-app.css">
     <script src="../cordova.js"></script>
     <script src="../js/common.js"></script>
+    <script src="../js/OrderP-app.js"></script>
 </head>
 <body >
 <div id="order-all">
     <header>
-        <p>下单准备</p>
+        <div class="commodity-top">
+            <ul>
+                <li class="commodity-top-i">
+
+                </li>
+                <li class="commodity-top-p">
+                    <p>下单准备</p>
+                </li>
+                <li class="commodity-top-b">
+                    <b onclick="logout()"></b>
+                </li>
+            </ul>
+        </div>
     </header>
     <section>
         <div class="order-bgm">
@@ -30,7 +43,7 @@
                         <img src="../img/order23.png">
                     </div>
                 </a>
-                <a href="#" style="width:265px;">
+                <a href="supplier/Supplier-app.html" style="width:265px;">
                     <div class="order-box-a">
                         <img src="../img/order25.png">
                     </div>
@@ -51,7 +64,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:void(0)" onclick="logout()">
                     <img src="../img/order9.png">
                 </a>
             </li>
