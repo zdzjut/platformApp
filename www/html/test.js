@@ -40,19 +40,28 @@ function sub(code) {
         dataType: "json", //返回JSONP格式的数据，此值固定
         timeout: 30000,
         success: function (data) {
-            alert(data.地址);
-            alert(data.成立日期);
-            alert(data.核准日期);
-            alert(data.法定代表人);
-            alert(data.注册号);
-            alert(data.注册资本);
-            alert(data.登记机关);
-            alert(data.登记状态);
-            alert(data.省市);
-            alert(data.类型);
-            alert(data.经营期限自);
-            alert(data.经营期限至);
-            alert(data.经营范围);
+            $('#text1').val(data.地址);
+            $('#text2').val(data.成立日期);
+            $('#text3').val(data.核准日期);
+            $('#text4').val(data.法定代表人);
+            $('#text5').val(data.注册号);
+            $('#text6').val(data.注册资本);
+            $('#text7').val(data.登记机关);
+            $('#text8').val(data.经营期限自);
+            $('#text9').val(data.经营期限至);
+            // alert(data.地址);
+            // alert(data.成立日期);
+            // alert(data.核准日期);
+            // alert(data.法定代表人);
+            // alert(data.注册号);
+            // alert(data.注册资本);
+            // alert(data.登记机关);
+            // alert(data.登记状态);
+            // alert(data.省市);
+            // alert(data.类型);
+            // alert(data.经营期限自);
+            // alert(data.经营期限至);
+            // alert(data.经营范围);
             // alert(data.统一社会信用代码);
         },
         error: function () {
