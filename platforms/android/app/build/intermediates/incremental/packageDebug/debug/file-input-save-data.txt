@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Feb 07 19:16:46 CST 2018
+#Wed Feb 07 19:22:26 CST 2018
 122.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\21.png
 60.set=ASSET
 129.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\background-1.png
