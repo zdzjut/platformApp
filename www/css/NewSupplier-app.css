@@ -65,7 +65,6 @@ input::-webkit-input-placeholder {
 }
 
 
-/*页面正式样式*/
 
 /*页面样式开始*/
 body{background-color: #eee;}
@@ -111,10 +110,10 @@ section{
 }
 .f_c{color: #f00;}
 .newgoods-section-dl{
-    display: inline-block;
     margin-top: 10px;
     width: 100%;
 }
+
 .newgoods-section-dl dt{
     font-size: 13px;
     text-align: left;
@@ -155,9 +154,8 @@ section{
     top: 1px;
     left: 83%;
 }
-.newsupplier-select{
+.newsupplier-select {
     display: none;
-    width:84%;
 }
 /* textarea框公用样式 */
 .newgoods-section-textarea{
@@ -195,11 +193,15 @@ section{
     padding-bottom: 35px;
     margin-top:10px;
 }
-.newgoods-section-box li{
+.show{
     display: inline-block;
     width: 49%;
     height: 155px;
     margin-top: 15px;
+}
+
+.no{
+    display: none;
 }
 .newgoods-section-box li>p{
     font-size: 13px;
@@ -288,3 +290,4 @@ button:hover{
     border-bottom: 1px solid #333;
     font-size: 15px;
 }
+

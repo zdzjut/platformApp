@@ -136,14 +136,6 @@ function submitPicture(type) {
     if (!confirm("确认提交,请勿多次提交")){
         return;
     }
-    // var commodityImg = document.getElementById('commodityImg').src;
-    // var commodityBrandImg = document.getElementById('commodityBrandImg').src;
-    // var commodityInnerImg = document.getElementById('commodityInnerImg').src;
-    // var commodityOtherImg = document.getElementById('commodityOtherImg').src;
-    // upup(commodityImg, 'commodityImg', tempId);
-    // upup(commodityBrandImg, 'commodityBrandImg', tempId);
-    // upup(commodityInnerImg, 'commodityInnerImg', tempId);
-    // upup(commodityOtherImg, 'commodityOtherImg', tempId);
     var tempId = getMap('tempId');
     $.ajax({
         url: url + "/app/insertCommodity",

@@ -21,7 +21,6 @@ $.ajax({
     }
 });
 
-
 function submitConsignee(type) {
     if (!confirm("确认提交,请勿多次提交")) {
         return;
@@ -32,6 +31,7 @@ function submitConsignee(type) {
     var financingType = $('input:radio:checked').val();
     var consigneeName = $('#consigneeName').val();
     var consigneeCountry = $('#consigneeCountry').val();
+    alert(consigneeCountry);
     var consigneeCity = $('#consigneeCity').val();
     var consigneeAddress = $('#consigneeAddress').val();
     var registerNo = $('#registerNo').val();
@@ -81,7 +81,8 @@ function removePictureShow(id) {
 }
 
 
-function show() {
+function show(id) {
+    setMap('nowId', id);
     showDg();
 }
 
@@ -151,7 +152,6 @@ function capturePictures() {
     function takePictureFail(message) {
         alert('获取拍照文件失败:' + message);
     }
-
     hideDg();
 }
 
@@ -162,6 +162,7 @@ function upup() {
     if (pictureUrl === null || pictureUrl === undefined || pictureUrl === '') {
         return;
     }
+    //上传过一次的话 变成修改
     var consigneeImg = getMap("consigneeImg");
     var uurrll = consigneeImg === null ? url + '/app/consigneeFile' : url + '/app/consigneeFile?consigneeImg=' + consigneeImg;
     var serverUri = encodeURI(uurrll);
