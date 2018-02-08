@@ -36,7 +36,7 @@ function search() {
 }
 //
 function modify(id) {
-    location.href = "../../html/supplier/ModifyGoods-app.html?id=" + id;
+    location.href = "../../html/supplier/ModifySupplier-app.html?id=" + id;
 }
 
 //删除此项

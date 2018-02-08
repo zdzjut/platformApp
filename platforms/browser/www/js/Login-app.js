@@ -28,7 +28,7 @@ function login() {
     });
 }
 function logout() {
-    if (confirm("是否退出该账户")) {
+    if (!confirm("是否退出该账户")) {
         return;
     }
     window.localStorage.clear();

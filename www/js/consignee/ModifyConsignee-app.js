@@ -25,7 +25,7 @@ function showDetail() {
     });
     var id = getParam("id");
     setMap("consigneeId", id);
-    var temp = url.replace("-", "/app/detailConsignee");
+    temp = url.replace("-", "/app/detailConsignee");
     $.ajax({
         url: temp,
         type: "POST",
@@ -205,7 +205,8 @@ function modifyConsigneePicture(consigneeId) {
     if (str === "http" || pictureUrl === null || pictureUrl === '') {
         return;
     }
-    var serverUri = encodeURI(url + '/app/modifyConsigneePicture?consigneeId=' + consigneeId);
+    var temp = url.replace("-", '/app/modifyConsigneePicture');
+    var serverUri = encodeURI(temp+'&consigneeId=' + consigneeId);
 
     function fileTransferSuccess() {
     }

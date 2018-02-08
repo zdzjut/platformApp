@@ -121,7 +121,8 @@ function modifyPicture(pictureUrl, type, wfStatus) {
         return;
     }
     var commodityId = getMap("commodityId");
-    var serverUri = encodeURI(url + '/app/modifyCommodityPicture?type=' + type + '&commodityId=' + commodityId + "&wfStatus=" + wfStatus);
+    var temp = url.replace("-", '/app/modifyCommodityPicture');
+    var serverUri = encodeURI(temp + '&type=' + type + '&commodityId=' + commodityId + '&wfStatus=' + wfStatus);
 
     function fileTransferSuccess(result) {
     }
