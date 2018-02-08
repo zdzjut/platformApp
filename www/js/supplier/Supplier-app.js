@@ -75,7 +75,7 @@ function clearKeyword() {
 }
 
 function detail(id) {
-    location.href = "../../html/commodity/DetailGoods-app.html?id=" + id;
+    location.href = "../../html/supplier/DetailsSupplier-app.html?id=" + id;
 }
 
 //模糊查询

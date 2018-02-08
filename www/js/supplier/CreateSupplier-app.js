@@ -1,25 +1,28 @@
-//载入省份列表
-$.ajax({
-    url: url + "/app/listProvince",
-    type: "post",
-    data: {},
-    dataType: "jsonp", //返回JSONP格式的数据，此值固定
-    jsonp: "callback", //回调函数的名字，此值固定
-    timeout: 30000,
-    success: function (data) {
-        if (data.result === 'success') {
-            var list = data.data;
-            for (var i = 0; i < list.length; i++) {
-                var name = list[i].name;
-                var id = list[i].id;
-                var newRow = "<option value='" + id + "'>" + name + "</option>";
-                $('#province').append(newRow);
+//如果载入省份列表
+function listProvince(id) {
+
+    $.ajax({
+        url: url + "/app/listProvince",
+        type: "post",
+        data: {},
+        dataType: "jsonp", //返回JSONP格式的数据，此值固定
+        jsonp: "callback", //回调函数的名字，此值固定
+        timeout: 30000,
+        success: function (data) {
+            if (data.result === 'success') {
+                var list = data.data;
+                for (var i = 0; i < list.length; i++) {
+                    var name = list[i].name;
+                    var id = list[i].id;
+                    var newRow = "<option value='" + id + "'>" + name + "</option>";
+                    $('#province').append(newRow);
+                }
+            } else {
+                alert(data.message);
             }
-        } else {
-            alert(data.message);
         }
-    }
-});
+    })
+}
 
 function listCity(id) {
     $('#city').empty();
@@ -87,7 +90,6 @@ function changeType(cho) {
         $(".yes").css("display", "none");
         $(".no").css("display", "inline-block");
     } else {
-        alert("选择了是");
         $(".no").css("display", "none");
         $(".yes").css("display", "inline-block");
     }
@@ -113,9 +115,7 @@ function submitSupplier(wfStatus) {
     var idCardBImage = getMap("idCardBImage");
     var generalTaxpayerImage = getMap("generalTaxpayerImage");
     var taxInvoiceImage = getMap("taxInvoiceImage");
-
-    var five = $('#five').val();
-    alert(five);
+    var isMerged = $('#isMerged').val();
     var businessLicenseCode = null;
     var taxRegistrationCode = null;
     var taxCode = null;
@@ -125,7 +125,7 @@ function submitSupplier(wfStatus) {
     var organizationImage = null;
     var socialCreditImage = null;
 
-    if (five === "0") {
+    if (isMerged === "0") {
         businessLicenseCode = $('#businessLicenseCode').val();
         taxRegistrationCode = $('#taxRegistrationCode').val();
         taxCode = $('#taxCode').val();
@@ -157,7 +157,7 @@ function submitSupplier(wfStatus) {
             representative: representative,
             idCardNo: idCardNo,
             contactPhone: contactPhone,
-            five: five,
+            isMerged: isMerged,
             businessLicenseCode: businessLicenseCode,
             taxRegistrationCode: taxRegistrationCode,
             taxCode: taxCode,
