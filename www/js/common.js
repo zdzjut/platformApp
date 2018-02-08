@@ -69,7 +69,8 @@ function modifyShowPicture(id, imageName) {
         image.src = "";
         return;
     }
-    image.src = url + '/images/' + imageName + "?rubbish=" + new Date();
+    var temp = url.replace("-", '/images/' + imageName);
+    image.src = temp + "&rubbish=" + new Date();
     $("#newgoods-section-" + id).css("display", "inline-block");
 }
 

@@ -1,4 +1,5 @@
-//如果载入省份列表
+//载入省份列表
+$('#province').append("<option value=''> </option>");
 var temp = url.replace("-", "/app/listProvince");
 $.ajax({
     url: temp,
@@ -20,11 +21,11 @@ $.ajax({
             alert(data.message);
         }
     }
-})
+});
 
 function listCity(id) {
     $('#city').empty();
-    $('#city').append("<option value='p'> </option>");
+    $('#city').append("<option value=''> </option>");
     var temp = url.replace("-", "/app/listCity");
     $.ajax({
         url: temp,
@@ -53,7 +54,7 @@ function listCity(id) {
 
 function listArea(id) {
     $('#area').empty();
-    $('#area').append("<option value='p'> </option>");
+    $('#area').append("<option value=''> </option>");
     var temp = url.replace("-", "/app/listArea");
     $.ajax({
         url: temp,
@@ -138,7 +139,7 @@ function submitSupplier(wfStatus) {
     }
     //暂时延迟两秒 防止图片未上传成功，没返回图片ID
     jQuery(document).ready(function () {
-        setTimeout('delayFailure()', 2000);
+        setTimeout('', 2000);
     });
     //先不判断
     var temp = url.replace("-", "/app/insertSupplier");

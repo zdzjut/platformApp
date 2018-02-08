@@ -24,8 +24,6 @@ function showDetail() {
                 $('#supplierFullAddress').val(businessSupplier.supplierFullAddress);
                 $('#registerCapital').val(businessSupplier.registerCapital);
                 $('#representative').val(businessSupplier.representative);
-                $('#representative').val(businessSupplier.representative);
-                $('#socialCreditCode').val(businessSupplier.socialCreditCode);
                 if (isMerged === "0") {
                     $(".yes").css("display", "none");
                     $(".no").css("display", "inline-block");
@@ -45,7 +43,7 @@ function showDetail() {
                     $(".no").css("display", "none");
                     $(".yes").css("display", "inline-block");
                     $('#isMerged').val("未办理");
-
+                    $('#socialCreditCode').val(businessSupplier.socialCreditCode);
                     var socialCreditImage = businessSupplier.socialCreditImage;
                     modifyShowPicture("socialCreditImage", socialCreditImage);
                 }
