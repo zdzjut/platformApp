@@ -1,34 +1,33 @@
 //如果载入省份列表
-function listProvince(id) {
-
-    $.ajax({
-        url: url + "/app/listProvince",
-        type: "post",
-        data: {},
-        dataType: "jsonp", //返回JSONP格式的数据，此值固定
-        jsonp: "callback", //回调函数的名字，此值固定
-        timeout: 30000,
-        success: function (data) {
-            if (data.result === 'success') {
-                var list = data.data;
-                for (var i = 0; i < list.length; i++) {
-                    var name = list[i].name;
-                    var id = list[i].id;
-                    var newRow = "<option value='" + id + "'>" + name + "</option>";
-                    $('#province').append(newRow);
-                }
-            } else {
-                alert(data.message);
+var temp = url.replace("-", "/app/listProvince");
+$.ajax({
+    url: temp,
+    type: "post",
+    data: {},
+    dataType: "jsonp", //返回JSONP格式的数据，此值固定
+    jsonp: "callback", //回调函数的名字，此值固定
+    timeout: 30000,
+    success: function (data) {
+        if (data.result === 'success') {
+            var list = data.data;
+            for (var i = 0; i < list.length; i++) {
+                var name = list[i].name;
+                var id = list[i].id;
+                var newRow = "<option value='" + id + "'>" + name + "</option>";
+                $('#province').append(newRow);
             }
+        } else {
+            alert(data.message);
         }
-    })
-}
+    }
+})
 
 function listCity(id) {
     $('#city').empty();
     $('#city').append("<option value='p'> </option>");
+    var temp = url.replace("-", "/app/listCity");
     $.ajax({
-        url: url + "/app/listCity",
+        url: temp,
         type: "post",
         data: {
             "id": id
@@ -55,8 +54,9 @@ function listCity(id) {
 function listArea(id) {
     $('#area').empty();
     $('#area').append("<option value='p'> </option>");
+    var temp = url.replace("-", "/app/listArea");
     $.ajax({
-        url: url + "/app/listArea",
+        url: temp,
         type: "post",
         data: {
             "id": id
@@ -141,8 +141,9 @@ function submitSupplier(wfStatus) {
         setTimeout('delayFailure()', 2000);
     });
     //先不判断
+    var temp = url.replace("-", "/app/insertSupplier");
     $.ajax({
-        url: url + "/app/insertSupplier",
+        url: temp,
         type: "post",
         data: {
             wfStatus: wfStatus,
@@ -281,7 +282,8 @@ function upup(pictureUrl, id) {
     if (pictureUrl === null || pictureUrl === undefined || pictureUrl === '') {
         return;
     }
-    var serverUri = encodeURI(url + '/app/supplierFile');
+    var temp = url.replace("-", '/app/supplierFile');
+    var serverUri = encodeURI(temp);
 
     function fileTransferSuccess(data) {
         var result = data.response;
@@ -317,7 +319,7 @@ function riskReport() {
             'apikey': apikey,
             'keyword': keyword
         },
-        dataType: "json", //返回JSONP格式的数据，此值固定
+        dataType: "json",
         timeout: 30000,
         success: function (data) {
             var list = data.hits;
@@ -349,7 +351,7 @@ function sub(code) {
         data: {
             'apikey': apikey
         },
-        dataType: "json", //返回JSONP格式的数据，此值固定
+        dataType: "json",
         timeout: 30000,
         success: function (data) {
             $(".newsupplier-select").css("display", "none");
@@ -361,20 +363,6 @@ function sub(code) {
             $('#supplierName').val(data.名称);
             $('#registerCapital').val(data.注册资本);
             $('#socialCreditCodeDl').val(data.统一社会信用代码);
-            // alert(data.地址);
-            // alert(data.成立日期);
-            // alert(data.核准日期);
-            // alert(data.法定代表人);
-            // alert(data.注册号);
-            // alert(data.注册资本);
-            // alert(data.登记机关);
-            // alert(data.登记状态);
-            // alert(data.省市);
-            // alert(data.类型);
-            // alert(data.经营期限自);
-            // alert(data.经营期限至);
-            // alert(data.经营范围);
-            // alert(data.统一社会信用代码);
         },
         error: function () {
             alert("请求失败");

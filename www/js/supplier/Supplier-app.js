@@ -2,8 +2,9 @@ var clientId = getMap('clientId');
 var keyword = getMap('keyword');
 
 function search() {
+    var temp = url.replace("-", "/app/listSupplier");
     $.ajax({
-        url: url + "/app/listSupplier",
+        url: temp,
         type: "post",
         data: {
             'clientId': clientId,
@@ -34,37 +35,38 @@ function search() {
     });
 }
 //
-// function modify(id) {
-//     location.href = "../../html/commodity/ModifyGoods-app.html?id=" + id;
-// }
-//
-// //删除此项
-// function changeDeleteFlag(id) {
-//     if (!confirm("确认删除")) {
-//         return;
-//     }
-//     getContent();
-//     $.ajax({
-//         url: url + "/app/deleteCommodity",
-//         type: "post",
-//         data: {
-//             'id': id
-//         },
-//         dataType: "jsonp", //返回JSONP格式的数据，此值固定
-//         jsonp: "callback", //回调函数的名字，此值固定
-//         timeout: 30000,
-//         success: function (data) {
-//             if (data.result === 'success') {
-//                 location.href = "../../html/commodity/Commodity-app.html";
-//             } else {
-//                 alert(data.message);
-//             }
-//         },
-//         error: function () {
-//             alert("未知错误");
-//         }
-//     });
-// }
+function modify(id) {
+    location.href = "../../html/supplier/ModifyGoods-app.html?id=" + id;
+}
+
+//删除此项
+function changeDeleteFlag(id) {
+    if (!confirm("确认删除")) {
+        return;
+    }
+    getContent();
+    var temp = url.replace("-", "/app/listSupplier");
+    $.ajax({
+        url: temp,
+        type: "post",
+        data: {
+            'id': id
+        },
+        dataType: "jsonp", //返回JSONP格式的数据，此值固定
+        jsonp: "callback", //回调函数的名字，此值固定
+        timeout: 30000,
+        success: function (data) {
+            if (data.result === 'success') {
+                location.href = "../../html/commodity/Commodity-app.html";
+            } else {
+                alert(data.message);
+            }
+        },
+        error: function () {
+            alert("未知错误");
+        }
+    });
+}
 
 /*搜索框清空设置*/
 function clearKeyword() {

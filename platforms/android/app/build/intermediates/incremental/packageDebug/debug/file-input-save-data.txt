@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Feb 07 19:29:18 CST 2018
+#Thu Feb 08 10:17:46 CST 2018
 122.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\21.png
 60.set=ASSET
 129.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\background-1.png
@@ -268,7 +268,7 @@
 58.set=ASSET
 132.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\order15.png
 41.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file-transfer\\www\\FileTransferError.js
-139.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\js\\OrderP-app.js
+139.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\android\\FileSystem.js
 4.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\Flags.js
 48.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\cordova.js
 16.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug
@@ -330,7 +330,7 @@ count=143
 48.set=ASSET
 131.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\icon.png
 40.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\order1.png
-138.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\android\\FileSystem.js
+138.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\js\\supplier\\ModifySupplier-app.js
 3.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\css\\Login-app.css
 15.base=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
 47.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\order22.png

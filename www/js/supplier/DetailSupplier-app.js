@@ -1,7 +1,8 @@
 function showDetail() {
     var id = getParam("id");
+    var temp = url.replace("-", "/app/detailSupplier");
     $.ajax({
-        url: url + '/app/detailSupplier',
+        url: temp,
         type: "POST",
         data: {
             "id": id

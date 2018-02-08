@@ -1,6 +1,7 @@
 //载入国家列表
+var temp = url.replace("-", "/app/listCountry");
 $.ajax({
-    url: url + "/app/listCountry",
+    url: temp,
     type: "post",
     data: {},
     dataType: "jsonp", //返回JSONP格式的数据，此值固定
@@ -40,8 +41,9 @@ function submitConsignee(type) {
     var consigneeEmail = $('#consigneeEmail').val();
     var remarks = $('#remarks').val();
     //先不判断
+    var temp = url.replace("-", "/app/insertConsignee");
     $.ajax({
-        url: url + "/app/insertConsignee",
+        url: temp,
         type: "post",
         data: {
             clientId: clientId,
@@ -164,7 +166,9 @@ function upup() {
     }
     //上传过一次的话 变成修改
     var consigneeImg = getMap("consigneeImg");
-    var uurrll = consigneeImg === null ? url + '/app/consigneeFile' : url + '/app/consigneeFile?consigneeImg=' + consigneeImg;
+
+    var temp = url.replace("-", '/app/consigneeFile');
+    var uurrll = consigneeImg === null ?temp : temp+'&consigneeImg=' + consigneeImg;
     var serverUri = encodeURI(uurrll);
 
     function fileTransferSuccess(data) {

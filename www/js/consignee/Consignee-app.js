@@ -2,8 +2,9 @@ var clientId = getMap('clientId');
 var keyword = getMap('keyword');
 
 function search() {
+    var temp = url.replace("-", "/app/listConsignee");
     $.ajax({
-        url: url + "/app/listConsignee",
+        url: temp,
         type: "post",
         data: {
             'clientId': 163,
@@ -45,8 +46,9 @@ function changeDeleteFlag(id) {
         return;
     }
     getContent();
+    var temp = url.replace("-", "/app/deleteConsignee");
     $.ajax({
-        url: url + "/app/deleteConsignee",
+        url: temp,
         type: "post",
         data: {
             'id': id

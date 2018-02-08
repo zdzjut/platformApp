@@ -115,7 +115,8 @@ function upup(pictureUrl, type, tempId) {
     if (pictureUrl === null || pictureUrl === undefined || pictureUrl === '') {
         return;
     }
-    var serverUri = encodeURI(url + '/app/file?type=' + type + '&tempId=' + tempId);
+    var temp = url.replace("-", '/app/file');
+    var serverUri = encodeURI( temp+"&type="+ type + '&tempId=' + tempId);
 
     function fileTransferSuccess() {
     }
@@ -137,8 +138,9 @@ function submitPicture(type) {
         return;
     }
     var tempId = getMap('tempId');
+    var temp = url.replace("-", "/app/insertCommodity");
     $.ajax({
-        url: url + "/app/insertCommodity",
+        url: temp,
         type: "post",
         data: {
             'tempId': tempId,
