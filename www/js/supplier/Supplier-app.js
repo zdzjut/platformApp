@@ -45,7 +45,7 @@ function changeDeleteFlag(id) {
         return;
     }
     getContent();
-    var temp = url.replace("-", "/app/listSupplier");
+    var temp = url.replace("-", "/app/deleteSupplier");
     $.ajax({
         url: temp,
         type: "post",
@@ -57,7 +57,7 @@ function changeDeleteFlag(id) {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                location.href = "../../html/commodity/Commodity-app.html";
+                location.href = "../../html/supplier/Supplier-app.html";
             } else {
                 alert(data.message);
             }

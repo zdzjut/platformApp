@@ -1,29 +1,47 @@
-//显示详情
+var id = getParam("id");
+
+//显示详情,写成函数老报错   直接写三次
 function showDetail() {
-    //如果载入省份列表
-    var temp = url.replace("-", "/app/listProvince");
+    //一次载入省市区列表
+    var temp = url.replace("-", "/app/listAllArea");
     $.ajax({
         url: temp,
         type: "post",
-        data: {},
+        data: {
+            "id": id
+        },
         dataType: "jsonp", //返回JSONP格式的数据，此值固定
         jsonp: "callback", //回调函数的名字，此值固定
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                var list = data.data;
-                for (var i = 0; i < list.length; i++) {
-                    var name = list[i].name;
-                    var id = list[i].id;
+                var map = data.data;
+                var provinces = map.provinces;
+                var cities = map.cities;
+                var counties = map.counties;
+                for (var i = 0; i < provinces.length; i++) {
+                    var name = provinces[i].name;
+                    var id = provinces[i].id;
                     var newRow = "<option value='" + id + "'>" + name + "</option>";
                     $('#province').append(newRow);
+                }
+                for (var i1 = 0; i1 < cities.length; i1++) {
+                    var name1 = cities[i1].name;
+                    var id1 = cities[i1].id;
+                    var newRow1 = "<option value='" + id1 + "'>" + name1 + "</option>";
+                    $('#city').append(newRow1);
+                }
+                for (var i2 = 0; i2 < counties.length; i2++) {
+                    var name2 = counties[i2].name;
+                    var id2 = counties[i2].id;
+                    var newRow2 = "<option value='" + id2 + "'>" + name2 + "</option>";
+                    $('#area').append(newRow2);
                 }
             } else {
                 alert(data.message);
             }
         }
     });
-    var id = getParam("id");
     temp = url.replace("-", "/app/detailSupplier");
     $.ajax({
         url: temp,
@@ -41,24 +59,26 @@ function showDetail() {
                 var province = businessSupplier.supplierProvince;
                 var city = businessSupplier.supplierCity;
                 var area = businessSupplier.supplierCounty;
-                listCity(province);
-                listArea(city);
                 $("#province option").each(function () {
                     var txt = $(this).attr("value");
                     if (province.toString() === txt.toString()) {
                         $(this).attr("selected", "selected");
+                        return false;
                     }
                 });
                 $("#city option").each(function () {
                     var txt1 = $(this).attr("value");
                     if (city.toString() === txt1.toString()) {
                         $(this).attr("selected", "selected");
+                        return false;
+
                     }
                 });
                 $("#area option").each(function () {
                     var txt2 = $(this).attr("value");
                     if (area.toString() === txt2.toString()) {
                         $(this).attr("selected", "selected");
+                        return false;
                     }
                 });
                 $('#supplierName').val(businessSupplier.supplierName);
@@ -73,7 +93,7 @@ function showDetail() {
                 if (isMerged === "0") {
                     $(".yes").css("display", "none");
                     $(".no").css("display", "inline-block");
-                    $('#isMerged').options[1].attr("selected", "selected");
+                    document.getElementById("isMerged")[1].selected=true;
 
                     $('#businessLicenseCode').val(businessSupplier.businessLicenseCode);
                     $('#taxRegistrationCode').val(businessSupplier.taxRegistrationCode);
@@ -88,7 +108,7 @@ function showDetail() {
                 } else {
                     $(".no").css("display", "none");
                     $(".yes").css("display", "inline-block");
-                    $('#isMerged').options[0].attr("selected", "selected");
+                    document.getElementById("isMerged")[0].selected=true;
 
                     $('#socialCreditCode').val(businessSupplier.socialCreditCode);
                     var socialCreditImage = businessSupplier.socialCreditImage;
@@ -109,15 +129,6 @@ function showDetail() {
         }
     });
 }
-
-// function defaultChoose(selectId, id) {
-//     $("#" + id + " option").each(function () {
-//         var txt = $(this).attr("value");
-//         if (id.toString() === txt.toString()) {
-//             $(this).attr("selected", "selected");
-//         }
-//     });
-// }
 
 function listCity(id) {
     $('#city').empty();
@@ -178,57 +189,107 @@ function listArea(id) {
     });
 }
 
+function changeType(cho) {
+    if (cho === "0") {
+        $(".yes").css("display", "none");
+        $(".no").css("display", "inline-block");
+    } else {
+        $(".no").css("display", "none");
+        $(".yes").css("display", "inline-block");
+    }
+}
 
-//修改收货人提交
 function submitSupplier(wfStatus) {
     if (!confirm("确认提交,请勿多次提交")) {
         return;
     }
-    var consigneeId = getMap("consigneeId");
-    //先上传修改后的图片，并关联到收货人
-    modifyConsigneePicture(consigneeId);
-    var clientId = getMap('clientId');
-    var financingType = $('input:radio:checked').val();
-    var consigneeName = $('#consigneeName').val();
-    var consigneeCountry = $('#consigneeCountry').val();
-    var consigneeCity = $('#consigneeCity').val();
-    var consigneeAddress = $('#consigneeAddress').val();
-    var registerNo = $('#registerNo').val();
-    var consigneePeople = $('#consigneePeople').val();
+    var supplierName = $('#supplierName').val();
+    var contactPeople = $('#contactPeople').val();
     var contactPhone = $('#contactPhone').val();
-    var consigneeEmail = $('#consigneeEmail').val();
-    var remarks = $('#remarks').val();
+    var supplierEmail = $('#supplierEmail').val();
+    var supplierFoundDate = $('#supplierFoundDate').val();
+    var area = getMap("area");
+
+    var supplierFullAddress = $('#supplierFullAddress').val();
+    var registerCapital = $('#registerCapital').val();
+    var representative = $('#representative').val();
+    var idCardNo = $('#idCardNo').val();
+    var idCardAImage = getMap("idCardAImage");
+    var idCardBImage = getMap("idCardBImage");
+    var generalTaxpayerImage = getMap("generalTaxpayerImage");
+    var taxInvoiceImage = getMap("taxInvoiceImage");
+    var isMerged = $('#isMerged').val();
+    var businessLicenseCode = null;
+    var taxRegistrationCode = null;
+    var taxCode = null;
+    var socialCreditCode = null;
+    var taxRegistrationImage = null;
+    var businessLicenseIamge = null;
+    var organizationImage = null;
+    var socialCreditImage = null;
+
+    if (isMerged === "0") {
+        businessLicenseCode = $('#businessLicenseCode').val();
+        taxRegistrationCode = $('#taxRegistrationCode').val();
+        taxCode = $('#taxCode').val();
+        taxRegistrationImage = getMap("taxRegistrationImage");
+        businessLicenseIamge = getMap("businessLicenseIamge");
+        organizationImage = getMap("organizationImage");
+    } else {
+        socialCreditCode = $('#socialCreditCode').val();
+        socialCreditImage = getMap("socialCreditImage");
+    }
+    //暂时延迟两秒 防止图片未上传成功，没返回图片ID
+    jQuery(document).ready(function () {
+        setTimeout('', 2000);
+    });
     //先不判断
-    var temp = url.replace("-", "/app/modifyConsignee");
+    var temp = url.replace("-", "/app/insertSupplier");
     $.ajax({
         url: temp,
         type: "post",
         data: {
-            clientId: clientId,
-            financingType: financingType,
-            consigneeName: consigneeName,
-            consigneeCountry: consigneeCountry,
-            consigneeCity: consigneeCity,
-            consigneeAddress: consigneeAddress,
-            registerNo: registerNo,
-            consigneePeople: consigneePeople,
-            contactPhone: contactPhone,
-            consigneeEmail: consigneeEmail,
+            id:id,
             wfStatus: wfStatus,
-            remarks: remarks
+            supplierName: supplierName,
+            contactPeople: contactPeople,
+            supplierEmail: supplierEmail,
+            supplierFoundDate: supplierFoundDate,
+            supplierCounty: area,
+            supplierFullAddress: supplierFullAddress,
+            registerCapital: registerCapital,
+            representative: representative,
+            idCardNo: idCardNo,
+            contactPhone: contactPhone,
+            isMerged: isMerged,
+            businessLicenseCode: businessLicenseCode,
+            taxRegistrationCode: taxRegistrationCode,
+            taxCode: taxCode,
+            socialCreditCode: socialCreditCode,
+
+            idCardAImage: idCardAImage,
+            idCardBImage: idCardBImage,
+            generalTaxpayerImage: generalTaxpayerImage,
+            taxInvoiceImage: taxInvoiceImage,
+            taxRegistrationImage: taxRegistrationImage,
+            businessLicenseIamge: businessLicenseIamge,
+            organizationImage: organizationImage,
+            socialCreditImage: socialCreditImage
         },
         dataType: "jsonp", //返回JSONP格式的数据，此值固定
         jsonp: "callback", //回调函数的名字，此值固定
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                location.href = "../../html/consignee/Consignee-app.html"
+
+                location.href = "../../html/supplier/Supplier-app.html"
             } else {
                 alert(data.message);
             }
         }
     });
 }
+
 
 
 //点击右上角叉号 去除图片

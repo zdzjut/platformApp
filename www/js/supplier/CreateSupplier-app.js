@@ -106,6 +106,7 @@ function submitSupplier(wfStatus) {
     var supplierEmail = $('#supplierEmail').val();
     var supplierFoundDate = $('#supplierFoundDate').val();
     var area = getMap("area");
+    removeMap("area");
     var supplierFullAddress = $('#supplierFullAddress').val();
     var registerCapital = $('#registerCapital').val();
     var representative = $('#representative').val();
