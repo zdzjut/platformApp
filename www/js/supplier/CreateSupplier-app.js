@@ -1,5 +1,3 @@
-//载入省份列表
-$('#province').append("<option value=''> </option>");
 var temp = url.replace("-", "/app/listProvince");
 $.ajax({
     url: temp,
@@ -25,7 +23,7 @@ $.ajax({
 
 function listCity(id) {
     $('#city').empty();
-    $('#city').append("<option value=''> </option>");
+    $('#city').append("<option value=' '> </option>");
     var temp = url.replace("-", "/app/listCity");
     $.ajax({
         url: temp,
@@ -54,7 +52,7 @@ function listCity(id) {
 
 function listArea(id) {
     $('#area').empty();
-    $('#area').append("<option value=''> </option>");
+    $('#area').append("<option value=' '> </option>");
     var temp = url.replace("-", "/app/listArea");
     $.ajax({
         url: temp,
@@ -329,6 +327,7 @@ function riskReport() {
                 sub(list[i].统一社会信用代码);
             } else {
                 $(".newsupplier-select").css("display", "block");
+                $('#company').append("<option value=''> </option>");
                 for (var i = 0; i < list.length; i++) {
                     var name = list[i].名称;
                     var code = list[i].统一社会信用代码;

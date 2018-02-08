@@ -27,22 +27,22 @@ function showDetail() {
                 if (isMerged === "0") {
                     $(".yes").css("display", "none");
                     $(".no").css("display", "inline-block");
-                    $('#isMerged').val("已办理");
+                    $('#isMerged').val("未办理");
 
                     $('#businessLicenseCode').val(businessSupplier.businessLicenseCode);
                     $('#taxRegistrationCode').val(businessSupplier.taxRegistrationCode);
                     $('#taxCode').val(businessSupplier.taxCode);
+
                     var businessLicenseIamge = businessSupplier.businessLicenseIamge;
                     var taxRegistrationImage = businessSupplier.taxRegistrationImage;
-                    modifyShowPicture("businessLicenseIamge", businessLicenseIamge);
                     var organizationImage = businessSupplier.organizationImage;
-
+                    modifyShowPicture("businessLicenseIamge", businessLicenseIamge);
                     modifyShowPicture("taxRegistrationImage", taxRegistrationImage);
                     modifyShowPicture("organizationImage", organizationImage);
                 } else {
                     $(".no").css("display", "none");
                     $(".yes").css("display", "inline-block");
-                    $('#isMerged').val("未办理");
+                    $('#isMerged').val("已办理");
                     $('#socialCreditCode').val(businessSupplier.socialCreditCode);
                     var socialCreditImage = businessSupplier.socialCreditImage;
                     modifyShowPicture("socialCreditImage", socialCreditImage);

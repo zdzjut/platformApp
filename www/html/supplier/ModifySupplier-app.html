@@ -20,7 +20,7 @@
                     <a href="Supplier-app.html"><i></i></a>
                 </li>
                 <li class="newgoods-top-p">
-                    <p>新增供应商</p>
+                    <p>修改供应商</p>
                 </li>
                 <li class="newgoods-top-b"></li>
             </ul>
@@ -58,7 +58,9 @@
 
                 <dt class="pmc-dt"><span class="f_c">*</span>省/市/县(区)：</dt>
                 <dd class="pmc-dd">
-                    <select id="province" onchange="listCity(this.options[this.selectedIndex].value);"></select>
+                    <select id="province" onchange="listCity(this.options[this.selectedIndex].value);">
+                        <option value=" "></option>
+                    </select>
                 </dd>
                 <dd class="pmc-dd">
                     <select id="city" onchange="listArea(this.options[this.selectedIndex].value);"></select>

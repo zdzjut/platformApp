@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Feb 08 13:55:17 CST 2018
+#Thu Feb 08 16:02:27 CST 2018
 122.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\html\\consignee\\CreateConsignee-app.html
 60.set=ASSET
 129.file=D\:\\workspace\\platformApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\order9.png

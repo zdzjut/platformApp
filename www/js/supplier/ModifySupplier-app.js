@@ -1,7 +1,6 @@
 //显示详情
 function showDetail() {
     //如果载入省份列表
-    $('#province').append("<option value='p'> </option>");
     var temp = url.replace("-", "/app/listProvince");
     $.ajax({
         url: temp,
@@ -24,33 +23,6 @@ function showDetail() {
             }
         }
     });
-    $('#city').append("<option value='p'> </option>");
-    temp = url.replace("-", "/app/listCity");
-    $.ajax({
-        url: temp,
-        type: "post",
-        data: {
-            "id": '210600'
-        },
-        dataType: "jsonp", //返回JSONP格式的数据，此值固定
-        jsonp: "callback", //回调函数的名字，此值固定
-        timeout: 30000,
-        success: function (data) {
-            if (data.result === 'success') {
-                var list = data.data;
-                alert(list.length);
-                for (var i = 0; i < list.length; i++) {
-                    var name = list[i].name;
-                    var id = list[i].id;
-                    var newRow = "<option value='" + id + "'>" + name + "</option>";
-                    $('#city').append(newRow);
-                }
-            } else {
-                alert(data.message);
-            }
-        }
-    });
-
     var id = getParam("id");
     temp = url.replace("-", "/app/detailSupplier");
     $.ajax({
@@ -69,11 +41,8 @@ function showDetail() {
                 var province = businessSupplier.supplierProvince;
                 var city = businessSupplier.supplierCity;
                 var area = businessSupplier.supplierCounty;
-                // listCity(province);
-                // listArea(city);
-                // defaultChoose("province", province);
-                // defaultChoose("city", city);
-                // defaultChoose("area", area);
+                listCity(province);
+                listArea(city);
                 $("#province option").each(function () {
                     var txt = $(this).attr("value");
                     if (province.toString() === txt.toString()) {
@@ -101,28 +70,27 @@ function showDetail() {
                 $('#supplierFullAddress').val(businessSupplier.supplierFullAddress);
                 $('#registerCapital').val(businessSupplier.registerCapital);
                 $('#representative').val(businessSupplier.representative);
-                $('#representative').val(businessSupplier.representative);
-                $('#socialCreditCode').val(businessSupplier.socialCreditCode);
                 if (isMerged === "0") {
                     $(".yes").css("display", "none");
                     $(".no").css("display", "inline-block");
-                    $('#isMerged').val("已办理");
+                    $('#isMerged').options[1].attr("selected", "selected");
 
                     $('#businessLicenseCode').val(businessSupplier.businessLicenseCode);
                     $('#taxRegistrationCode').val(businessSupplier.taxRegistrationCode);
                     $('#taxCode').val(businessSupplier.taxCode);
                     var businessLicenseIamge = businessSupplier.businessLicenseIamge;
                     var taxRegistrationImage = businessSupplier.taxRegistrationImage;
-                    modifyShowPicture("businessLicenseIamge", businessLicenseIamge);
                     var organizationImage = businessSupplier.organizationImage;
 
+                    modifyShowPicture("businessLicenseIamge", businessLicenseIamge);
                     modifyShowPicture("taxRegistrationImage", taxRegistrationImage);
                     modifyShowPicture("organizationImage", organizationImage);
                 } else {
                     $(".no").css("display", "none");
                     $(".yes").css("display", "inline-block");
-                    $('#isMerged').val("未办理");
+                    $('#isMerged').options[0].attr("selected", "selected");
 
+                    $('#socialCreditCode').val(businessSupplier.socialCreditCode);
                     var socialCreditImage = businessSupplier.socialCreditImage;
                     modifyShowPicture("socialCreditImage", socialCreditImage);
                 }
@@ -153,7 +121,7 @@ function showDetail() {
 
 function listCity(id) {
     $('#city').empty();
-    $('#city').append("<option value=''> </option>");
+    $('#city').append("<option value='p'> </option>");
     var temp = url.replace("-", "/app/listCity");
     $.ajax({
         url: temp,
@@ -183,7 +151,7 @@ function listCity(id) {
 
 function listArea(id) {
     $('#area').empty();
-    $('#area').append("<option value=''> </option>");
+    $('#area').append("<option value= 'p'> </option>");
     var temp = url.replace("-", "/app/listArea");
     $.ajax({
         url: temp,
