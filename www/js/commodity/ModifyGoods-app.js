@@ -1,7 +1,8 @@
 function showDetail() {
     var id = getParam("id");
+    var temp = url.replace("-", "/app/detailCommodity");
     $.ajax({
-        url: url + '/app/detailCommodity',
+        url: temp,
         type: "POST",
         data: {
             "id": id
@@ -70,8 +71,9 @@ function next() {
     var declarationItems = $('#declarationItems').val();
     var remarks = $('#remarks').val();
     //先不判断
+    var temp = url.replace("-", "/app/modifyCommodity");
     $.ajax({
-        url: url + "/app/modifyCommodity",
+        url: temp,
         type: "post",
         data: {
             'id':id,

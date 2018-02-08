@@ -3,8 +3,9 @@
  */
 function showModify() {
     var id = getMap("commodityId");
+    var temp = url.replace("-", "/app/detailCommodity");
     $.ajax({
-        url: url + '/app/detailCommodity',
+        url: temp,
         type: "POST",
         data: {
             "id": id

@@ -32,8 +32,9 @@ function next() {
     var declarationItems = $('#declarationItems').val();
     var remarks = $('#remarks').val();
     //先不判断
+    var temp = url.replace("-", "/app/saveCommodity");
     $.ajax({
-        url: url + "/app/saveCommodity",
+        url: temp,
         type: "post",
         data: {
             clientId: clientId,

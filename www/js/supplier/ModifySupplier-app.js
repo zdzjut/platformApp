@@ -1,8 +1,8 @@
 //显示详情
 function showDetail() {
-    //载入国家列表
+    var temp = url.replace("-", "/app/listCountry");
     $.ajax({
-        url: url + "/app/listCountry",
+        url: temp,
         type: "post",
         data: {},
         dataType: "jsonp", //返回JSONP格式的数据，此值固定
@@ -24,8 +24,9 @@ function showDetail() {
     });
     var id = getParam("id");
     setMap("consigneeId", id);
+    var temp = url.replace("-", "/app/detailSupplier");
     $.ajax({
-        url: url + '/app/detailConsignee',
+        url: temp,
         type: "POST",
         data: {
             "id": id
@@ -81,8 +82,9 @@ function submitConsignee(wfStatus) {
     var consigneeEmail = $('#consigneeEmail').val();
     var remarks = $('#remarks').val();
     //先不判断
+    var temp = url.replace("-", "/app/modifyConsignee");
     $.ajax({
-        url: url + "/app/modifyConsignee",
+        url: temp,
         type: "post",
         data: {
             clientId: clientId,

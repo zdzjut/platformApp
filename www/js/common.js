@@ -1,4 +1,8 @@
 var url = 'http://192.168.2.77:7087';
+var token = getMap("token");
+if (token !== null) {
+    url = 'http://192.168.2.77:7087-/?token=' + token;
+}
 // var url = 'http://122.226.221.26:7088';
 
 //返回
