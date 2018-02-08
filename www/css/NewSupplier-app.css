@@ -258,7 +258,23 @@ section{
 button:hover{
     background:#3481ED;
 }
-
+/*底部按钮单独样式可公用*/
+footer{
+    width:100%;
+    background:#fff;
+    height: 80px;
+    line-height: 80px;
+    text-align: right;
+}
+.newgoods-button{
+    width:75px;
+    height:30px;
+    border-radius: 5px;
+    background-color: #7bb4fb;
+    border: none;
+    color: #fff;
+    margin-right: 3%;
+}
 
 /*弹出框样式*/
 .overlay{
