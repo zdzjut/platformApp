@@ -27,7 +27,7 @@ function search() {
                     wf = '暂存';
                 }
                 var newRow = "<tr><td class='chinese-name' onclick='detail(" + list[i].id + ")'>" + list[i].supplierName + "</td><td class='customs-code'>" + list[i].representative + "</td><td class='process-state'>" + wf
-                    + "</td><td class='commodity-td'>" + "<span onclick='bank(" + list[i].id + ")'></span><i class='commodity-edit' onclick='modify(" + list[i].id + ")'></i><b class='disappear-b' onclick='changeDeleteFlag(" + list[i].id + ")'></b></td>";
+                    + "</td><td class='commodity-td'>" + "<span onclick='bank(" + list[i].id + ")'></span><i class='commodity-edit' onclick='modify(" + list[i].id + ")'></i><b class='disappear-b' onclick='changeDeleteFlag(" + list[i].id + ")'></b></td></tr>";
                 $('#commodity-tbody').append(newRow);
             }
             $("#search-input").val(keyword);
