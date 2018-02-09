@@ -136,13 +136,12 @@ section{
 .newgoods-section-dl{
     display: inline-block;
     margin-top: 10px;
-    margin-left: 10px;
     width: 100%;
 }
 .newgoods-section-dl dt{
     font-size: 13px;
     float: left;
-    text-align: left;
+    text-align: right;
     width: 22%;
     line-height: 30px;
     font-weight:normal;
@@ -164,12 +163,11 @@ section{
     display: inline-block;
     width:100%;
     margin-top: 10px;
-    margin-left: 10px;
 }
 .newgoods-section-textarea dt{
     font-size: 13px;
     float: left;
-    text-align: left;
+    text-align: right;
     width: 22%;
     line-height: 30px;
     font-weight:normal;
