@@ -27,7 +27,7 @@ function search() {
                     wf = '暂存';
                 }
                 var newRow = "<tr><td class='chinese-name' onclick='detail(" + list[i].id + ")'>" + list[i].supplierName + "</td><td class='customs-code'>" + list[i].representative + "</td><td class='process-state'>" + wf
-                    + "</td><td class='commodity-td'>" + "<i class='commodity-edit' onclick='modify(" + list[i].id + ")'></i><b class='disappear-b' onclick='changeDeleteFlag(" + list[i].id + ")'></b></td>";
+                    + "</td><td class='commodity-td'>" + "<span onclick='bank(" + list[i].id + ")'></span><i class='commodity-edit' onclick='modify(" + list[i].id + ")'></i><b class='disappear-b' onclick='changeDeleteFlag(" + list[i].id + ")'></b></td>";
                 $('#commodity-tbody').append(newRow);
             }
             $("#search-input").val(keyword);
@@ -38,7 +38,9 @@ function search() {
 function modify(id) {
     location.href = "../../html/supplier/ModifySupplier-app.html?id=" + id;
 }
-
+function bank(id) {
+    location.href = "../../html/bank/BankInformation-app.html?id=" + id;
+}
 //删除此项
 function changeDeleteFlag(id) {
     if (!confirm("确认删除")) {
