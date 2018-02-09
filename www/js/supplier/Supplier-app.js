@@ -39,6 +39,7 @@ function modify(id) {
     location.href = "../../html/supplier/ModifySupplier-app.html?id=" + id;
 }
 function bank(id) {
+    removeMap("complexId");
     location.href = "../../html/bank/BankInformation-app.html?id=" + id;
 }
 //删除此项

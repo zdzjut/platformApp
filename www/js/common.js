@@ -1,11 +1,12 @@
 // var url = 'http://192.168.1.5:7087';
-var url = 'http://192.168.2.77:7087';
+var url = 'http://122.226.221.26:7088';
+// var url = 'http://192.168.2.77:7087';
 var token = getMap("token");
 if (token !== null) {
-    url = 'http://192.168.2.77:7087-/?token=' + token;
+    url = 'http://122.226.221.26:7088-/?token=' + token;
+    // url = 'http://192.168.2.77:7087-/?token=' + token;
     // url = 'http://192.168.1.5:7087-/?token=' + token;
 }
-// var url = 'http://122.226.221.26:7088';
 
 //返回
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -51,6 +52,7 @@ function getMap(key) {
     return window.localStorage.getItem(key);
 }
 
+
 function setMap(key, value) {
     window.localStorage.setItem(key, value);
 }
@@ -58,6 +60,14 @@ function setMap(key, value) {
 function removeMap(key) {
     window.localStorage.removeItem(key);
 }
+
+function getMapAndRemove(key) {
+    var result = window.localStorage.getItem(key);
+    window.localStorage.removeItem(key);
+    return result;
+}
+
+
 
 //返回上一级
 function back() {

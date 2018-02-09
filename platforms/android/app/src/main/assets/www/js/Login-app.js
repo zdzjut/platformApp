@@ -1,5 +1,8 @@
 function login() {
     window.localStorage.clear();
+    var uu = 'http://192.168.1.5:7087';
+// var uu = 'http://122.226.221.26:7088';
+//     var uu = 'http://192.168.2.77:7087';
     var account = $('#account').val();
     var password = $('#password').val();
     var req_data = {
@@ -7,7 +10,7 @@ function login() {
         "password": password
     };
     $.ajax({
-        url: url+'/app/login',
+        url: uu+'/app/login',
         type: "POST",
         data: req_data,
         dataType: "jsonp", //返回JSONP格式的数据，此值固定

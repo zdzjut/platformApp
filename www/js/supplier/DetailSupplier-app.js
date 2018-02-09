@@ -24,7 +24,7 @@ function showDetail() {
                 $('#supplierFullAddress').val(businessSupplier.supplierFullAddress);
                 $('#registerCapital').val(businessSupplier.registerCapital);
                 $('#representative').val(businessSupplier.representative);
-                if (isMerged === "0") {
+                if (isMerged === -2022104802) {
                     $(".yes").css("display", "none");
                     $(".no").css("display", "inline-block");
                     $('#isMerged').val("未办理");

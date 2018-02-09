@@ -85,7 +85,7 @@ function sendD(id) {
 
 
 function changeType(cho) {
-    if (cho === "0") {
+    if (cho === "-2022104802") {
         $(".yes").css("display", "none");
         $(".no").css("display", "inline-block");
     } else {
@@ -125,16 +125,16 @@ function submitSupplier(wfStatus) {
     var organizationImage = null;
     var socialCreditImage = null;
 
-    if (isMerged === "0") {
+    if (isMerged === "-2022104802") {
         businessLicenseCode = $('#businessLicenseCode').val();
         taxRegistrationCode = $('#taxRegistrationCode').val();
         taxCode = $('#taxCode').val();
-        taxRegistrationImage = getMap("taxRegistrationImage");
-        businessLicenseIamge = getMap("businessLicenseIamge");
-        organizationImage = getMap("organizationImage");
+        taxRegistrationImage = getMapAndRemove("taxRegistrationImage");
+        businessLicenseIamge = getMapAndRemove("businessLicenseIamge");
+        organizationImage = getMapAndRemove("organizationImage");
     } else {
         socialCreditCode = $('#socialCreditCode').val();
-        socialCreditImage = getMap("socialCreditImage");
+        socialCreditImage = getMapAndRemove("socialCreditImage");
     }
     //暂时延迟两秒 防止图片未上传成功，没返回图片ID
     jQuery(document).ready(function () {
@@ -325,7 +325,7 @@ function riskReport() {
             var list = data.hits;
             if (list.length === 0) {
             } else if (list.length === 1) {
-                sub(list[i].统一社会信用代码);
+                sub(list[0].统一社会信用代码);
             } else {
                 $(".newsupplier-select").css("display", "block");
                 $('#company').append("<option value=''> </option>");

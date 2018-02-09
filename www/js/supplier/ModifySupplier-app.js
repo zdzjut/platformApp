@@ -2,8 +2,12 @@ var id = getParam("id");
 
 //显示详情,写成函数老报错   直接写三次
 function showDetail() {
+    $('#province').empty();
+    $('#city').empty();
+    $('#area').empty();
     //一次载入省市区列表
     var temp = url.replace("-", "/app/listAllArea");
+
     $.ajax({
         url: temp,
         type: "post",
@@ -42,6 +46,7 @@ function showDetail() {
             }
         }
     });
+    sleep(1000);
     temp = url.replace("-", "/app/detailSupplier");
     $.ajax({
         url: temp,
@@ -90,11 +95,10 @@ function showDetail() {
                 $('#supplierFullAddress').val(businessSupplier.supplierFullAddress);
                 $('#registerCapital').val(businessSupplier.registerCapital);
                 $('#representative').val(businessSupplier.representative);
-                if (isMerged === "0") {
+                if (isMerged === -2022104802) {
                     $(".yes").css("display", "none");
                     $(".no").css("display", "inline-block");
-                    document.getElementById("isMerged")[1].selected=true;
-
+                    document.getElementById("isMerged")[1].selected = true;
                     $('#businessLicenseCode').val(businessSupplier.businessLicenseCode);
                     $('#taxRegistrationCode').val(businessSupplier.taxRegistrationCode);
                     $('#taxCode').val(businessSupplier.taxCode);
@@ -108,9 +112,10 @@ function showDetail() {
                 } else {
                     $(".no").css("display", "none");
                     $(".yes").css("display", "inline-block");
-                    document.getElementById("isMerged")[0].selected=true;
+                    document.getElementById("isMerged")[0].selected = true;
 
                     $('#socialCreditCode').val(businessSupplier.socialCreditCode);
+
                     var socialCreditImage = businessSupplier.socialCreditImage;
                     modifyShowPicture("socialCreditImage", socialCreditImage);
                 }
@@ -228,28 +233,24 @@ function submitSupplier(wfStatus) {
     var organizationImage = null;
     var socialCreditImage = null;
 
-    if (isMerged === "0") {
+    if (isMerged === "-2022104802") {
         businessLicenseCode = $('#businessLicenseCode').val();
         taxRegistrationCode = $('#taxRegistrationCode').val();
         taxCode = $('#taxCode').val();
-        taxRegistrationImage = getMap("taxRegistrationImage");
-        businessLicenseIamge = getMap("businessLicenseIamge");
-        organizationImage = getMap("organizationImage");
+        taxRegistrationImage = getMapAndRemove("taxRegistrationImage");
+        businessLicenseIamge = getMapAndRemove("businessLicenseIamge");
+        organizationImage = getMapAndRemove("organizationImage");
     } else {
         socialCreditCode = $('#socialCreditCode').val();
-        socialCreditImage = getMap("socialCreditImage");
+        socialCreditImage = getMapAndRemove("socialCreditImage");
     }
-    //暂时延迟两秒 防止图片未上传成功，没返回图片ID
-    jQuery(document).ready(function () {
-        setTimeout('', 2000);
-    });
     //先不判断
-    var temp = url.replace("-", "/app/insertSupplier");
+    var temp = url.replace("-", "/app/modifySupplier");
     $.ajax({
         url: temp,
         type: "post",
         data: {
-            id:id,
+            id: id,
             wfStatus: wfStatus,
             supplierName: supplierName,
             contactPeople: contactPeople,
@@ -281,23 +282,12 @@ function submitSupplier(wfStatus) {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-
                 location.href = "../../html/supplier/Supplier-app.html"
             } else {
                 alert(data.message);
             }
         }
     });
-}
-
-
-
-//点击右上角叉号 去除图片
-function removePictureShow(id) {
-    var image = document.getElementById(id);
-    image.removeAttribute("src");
-    $("#newgoods-section-" + id).css("display", "none");
-
 }
 
 //nowId现在在传哪张
@@ -342,8 +332,6 @@ function fetchPictures() {
         image.src = imageURI;
         $("#newgoods-section-consigneeImg").css("display", "inline-block");
         upup(imageURI, id);
-
-
     }
 
 //获取文件失败
@@ -382,20 +370,24 @@ function capturePictures() {
  * 文件上传start id是此时选中的图片ID 也是类型
  **/
 
-function upup(pictureUrl, id) {
+function upup(pictureUrl, type) {
     if (pictureUrl === null || pictureUrl === undefined || pictureUrl === '') {
         return;
     }
-    var temp = url.replace("-", '/app/supplierFile');
-    var serverUri = encodeURI(temp);
+    var temp = url.replace("-", '/app/modifySupplierPicture');
+    var serverUri = encodeURI(temp + "&supplierId=" + id + "&type=" + type);
 
     function fileTransferSuccess(data) {
         var result = data.response;
         result = JSON.parse(result);
+        //修改成功返回新增的图片名或者修改的图片名，type对应的图片发生了更改
         if (result.result === 'success') {
-            setMap(id, result.data);
-        }
+            if (result.message === 'create') {
+                //新增才需要修改数据库字段
+                setMap(type, result.data);
+            }
 
+        }
     }
 
     function fileTransferError(error) {

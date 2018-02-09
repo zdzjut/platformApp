@@ -9,17 +9,18 @@
     <script src="../../js/jquery-1.11.3.min.js"></script>
     <script src="../../cordova.js"></script>
     <script src="../../js/common.js"></script>
+    <script src="../../js/bank/DetailBankInfo-app.js"></script>
 </head>
-<body>
+<body onload="showDetail()">
 <div id="order-all">
     <header>
         <div class="newgoods-top">
             <ul>
                 <li class="newgoods-top-i">
-                    <a href="Commodity-app.html"><i></i></a>
+                    <a href="BankInformation-app.html"><i></i></a>
                 </li>
                 <li class="newgoods-top-p">
-                    <p>银行信息详情</p>
+                    <p>新增银行信息</p>
                 </li>
                 <li class="newgoods-top-b"></li>
             </ul>
@@ -30,54 +31,62 @@
             <dl class="newgoods-section-dl">
                 <dt><span class="f_c"></span>供应商名称：</dt>
                 <dd>
-                    <input type="text" id="supplierName"  disabled="disabled">
+                    <input type="text" id="supplierName" disabled="disabled">
                 </dd>
             </dl>
             <dl class="newgoods-section-dl">
                 <dt><span class="f_c"></span>证件号码：</dt>
                 <dd>
-                    <input  type="text" id="socialCreditCode"   disabled="disabled">
+                    <input type="text" id="idCardNo" disabled="disabled">
                 </dd>
             </dl>
             <dl class="newgoods-section-dl" id="businessLicenseCodeDl">
                 <dt><span class="f_c"></span>供应商法人：</dt>
                 <dd>
-                    <input  type="text" id="socialCreditCode" disabled="disabled">
+                    <input type="text" id="representative" disabled="disabled">
                 </dd>
             </dl>
             <dl class="newgoods-section-dl" id="taxRegistrationCodeDl">
                 <dt><span class="f_c"></span>账户名称：</dt>
                 <dd>
-                    <input  type="text" id="supplierName"  disabled="disabled">
+                    <input type="text" id="bankAccountName">
                 </dd>
             </dl>
             <dl class="newgoods-section-dl" id="taxNoDl">
-                <dt><span class="f_c"></span>开户银行：</dt>
+                <dt><span class="f_c">*</span>开户银行：</dt>
                 <dd>
-                    <input  type="text" id="bankOpenAccount" disabled="disabled">
+                    <input type="text" id="bankOpenAccount" placeholder="请输入开户银行">
                 </dd>
             </dl>
             <dl class="newgoods-section-dl">
-                <dt><span class="f_c"></span>银行账号：</dt>
+                <dt><span class="f_c">*</span>银行账号：</dt>
                 <dd>
-                    <input  type="text" id="bankAccount" disabled="disabled">
+                    <input type="text" id="bankAccount" placeholder="请输入银行账号">
                 </dd>
             </dl>
             <dl class="newgoods-section-dl">
-                <dt><span class="f_c"></span>货币种类：</dt>
+                <dt><span class="f_c">*</span>货币种类：</dt>
                 <dd>
-                    <input  type="text" disabled="disabled">
+                    <select id="bankCurrency">
+                        <option value="-2022102001">人民币</option>
+                        <option value="-2022102002">美元</option>
+                    </select>
                 </dd>
             </dl>
             <dl class="newgoods-section-dl">
-                <dt><span class="f_c"></span>是否设为默认账户：</dt>
+                <dt><span class="f_c">*</span>是否设为默认账户：</dt>
                 <dd>
-                    <input  type="text"  disabled="disabled">
+                    <select id="isDefault">
+                        <option value="-2022101001">是</option>
+                        <option value="-2022101002">否</option>
+                    </select>
                 </dd>
             </dl>
         </div>
     </section>
-    <div class="fit-screen"></div>
+    <footer>
+        <button class="newgoods-button" onclick="submitBankInfo()">提交</button>
+    </footer>
 </div>
 </body>
 </html>

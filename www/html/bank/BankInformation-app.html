@@ -10,45 +10,46 @@
     <script src="../../cordova.js"></script>
     <script src="../../js/jquery-1.11.3.min.js"></script>
     <script src="../../js/common.js"></script>
+    <script src="../../js/bank/BankInformation-app.js"></script>
 </head>
-<body>
-    <div id="order-all">
-        <header>
-            <div class="commodity-top">
-                <ul>
-                    <li class="commodity-top-i">
-                        <a href="../OrderP-app.html"><i></i></a>
-                    </li>
-                    <li class="commodity-top-p">
-                        <p>银行信息</p>
-                    </li>
-                    <li class="commodity-top-b">
-                        <a href="CreateBankInformation-app.html"><b></b></a>
-                    </li>
-                </ul>
+<body onload="search()">
+<div id="order-all">
+    <header>
+        <div class="commodity-top">
+            <ul>
+                <li class="commodity-top-i">
+                    <a href="../supplier/Supplier-app.html"><i></i></a>
+                </li>
+                <li class="commodity-top-p">
+                    <p>银行信息</p>
+                </li>
+                <li class="commodity-top-b">
+                    <a href="CreateBankInformation-app.html"><b></b></a>
+                </li>
+            </ul>
+        </div>
+        <div class="commodity-footer">
+            <div>
+                <i class="search-i" onclick="clickSearch()"></i>
+                <input style="outline: none;" type="text" placeholder="请输入商品名称或者型号" class="content" id="search-input"/>
+                <b id="clear-b" onclick="clearKeyword()"></b>
             </div>
-            <div class="commodity-footer">
-                <div>
-                    <i class="search-i" onclick="clickSearch()"></i>
-                    <input style="outline: none;" type="text" placeholder="请输入商品名称或者型号" class="content" id="search-input"/>
-                    <b id="clear-b" onclick="clearKeyword()"></b>
-                </div>
-            </div>
-        </header>
-        <section>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>账户名称</th>
-                    <th>银行账号</th>
-                    <th>币种</th>
-                </tr>
-                </thead>
-                <tbody id="commodity-tbody">
+        </div>
+    </header>
+    <section>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>账户名称</th>
+                <th>银行账号</th>
+                <th>币种</th>
+            </tr>
+            </thead>
+            <tbody id="commodity-tbody">
 
-                </tbody>
-            </table>
-        </section>
-    </div>
+            </tbody>
+        </table>
+    </section>
+</div>
 </body>
 </html>

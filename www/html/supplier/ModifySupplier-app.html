@@ -32,8 +32,8 @@
                 <dt><span class="f_c">*</span>是否已经办理五证合一：</dt>
                 <dd>
                     <select onchange="changeType(this.options[this.selectedIndex].value);" id="isMerged">
-                        <option value="1">是</option>
-                        <option value="0">否</option>
+                        <option value="-2022104801">是</option>
+                        <option value="-2022104802">否</option>
                     </select>
                 </dd>
             </dl>
@@ -153,57 +153,45 @@
                         <img id="idCardAImage"/>
                     </div>
 
-                    <i id="newgoods-section-commodityImg" onclick="removePictureShow('idCardAImage')"></i>
                 </li>
                 <li class="show">
                     <p>法人身份证反面</p>
                     <div onclick="show('idCardBImage')">
                         <img id="idCardBImage"/>
-
                     </div>
-                    <i id="newgoods-section-idCardBImage" onclick="removePictureShow('idCardBImage')"></i>
                 </li>
 
                 <li class="show">
                     <p>六个月以内增值税发票</p>
                     <div onclick="show('taxInvoiceImage')">
                         <img id="taxInvoiceImage"/>
-
                     </div>
-                    <i id="newgoods-section-taxInvoiceImage" onclick="removePictureShow('taxInvoiceImage')"></i>
                 </li>
                 <li class="show">
                     <p>一般纳税人资质图片</p>
                     <div onclick="show('generalTaxpayerImage')">
                         <img id="generalTaxpayerImage"/>
-
                     </div>
-                    <i id="newgoods-section-generalTaxpayerImage"
-                       onclick="removePictureShow('generalTaxpayerImage')"></i>
+
                 </li>
                 <li class="show yes">
                     <p>营业执照</p>
                     <div onclick="show('socialCreditImage')">
                         <img id="socialCreditImage"/>
                     </div>
-                    <i id="newgoods-section-socialCreditImage" onclick="removePictureShow('taxRegistrationImage')"></i>
                 </li>
                 <li class="show no">
                     <p>工商营业执照</p>
                     <div onclick="show('businessLicenseIamge')">
                         <img id="businessLicenseIamge"/>
-
                     </div>
-                    <i id="newgoods-section-businessLicenseIamge"
-                       onclick="removePictureShow('businessLicenseIamge')"></i>
+
                 </li>
                 <li class="show no">
                     <p>组织机构图片</p>
                     <div onclick="show('organizationImage')">
                         <img id="organizationImage"/>
-
                     </div>
-                    <i id="newgoods-section-organizationImage" onclick="removePictureShow('organizationImage')"></i>
                 </li>
 
                 <li class="show no">
@@ -211,8 +199,7 @@
                     <div onclick="show('taxRegistrationImage')">
                         <img id="taxRegistrationImage"/>
                     </div>
-                    <i id="newgoods-section-taxRegistrationImage"
-                       onclick="removePictureShow('taxRegistrationImage')"></i>
+
                 </li>
             </ul>
         </div>

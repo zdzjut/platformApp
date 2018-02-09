@@ -1,6 +1,7 @@
 //显示详情
 function showDetail() {
     //载入国家列表
+    $('#consigneeCountry').empty();
     var temp = url.replace("-", "/app/listCountry");
     $.ajax({
         url: temp,
@@ -23,6 +24,7 @@ function showDetail() {
             }
         }
     });
+    sleep(1000);
     var id = getParam("id");
     setMap("consigneeId", id);
     temp = url.replace("-", "/app/detailConsignee");
@@ -41,9 +43,14 @@ function showDetail() {
                 var i = businessConsignee.financingType === -2022109101 ? 0 : 1;
                 $("input[type='radio'][name='financingType']:eq(" + i + ")").attr("checked", "checked");
                 $('#consigneeName').val(businessConsignee.consigneeName);
-                var countryNo = businessConsignee.updator;
-                var selects = document.getElementById("consigneeCountry");
-                selects.options[countryNo].selected = true;
+                var consigneeCountry = businessConsignee.consigneeCountry;
+                $("#consigneeCountry option").each(function () {
+                    var txt = $(this).attr("value");
+                    if (consigneeCountry.toString() === txt.toString()) {
+                        $(this).attr("selected", "selected");
+                        return false;
+                    }
+                });
                 // selectChoose('consigneeCountry', businessConsignee.consigneeCountry);
                 $('#consigneeCity').val(businessConsignee.consigneeCity);
                 $('#consigneeAddress').val(businessConsignee.consigneeAddress);
@@ -85,7 +92,7 @@ function submitConsignee(wfStatus) {
     //先不判断
     var temp = url.replace("-", "/app/modifyConsignee");
     $.ajax({
-        url:temp,
+        url: temp,
         type: "post",
         data: {
             clientId: clientId,
@@ -206,7 +213,7 @@ function modifyConsigneePicture(consigneeId) {
         return;
     }
     var temp = url.replace("-", '/app/modifyConsigneePicture');
-    var serverUri = encodeURI(temp+'&consigneeId=' + consigneeId);
+    var serverUri = encodeURI(temp + '&consigneeId=' + consigneeId);
 
     function fileTransferSuccess() {
     }
