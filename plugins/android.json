@@ -7,7 +7,7 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-backbutton": {
       "PACKAGE_NAME": "com.gmgyl.platform"
     },
     "cordova-plugin-camera": {
@@ -16,10 +16,13 @@
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.gmgyl.platform"
     },
-    "cordova-plugin-backbutton": {
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.gmgyl.platform"
     },
     "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "com.gmgyl.platform"
+    },
+    "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.gmgyl.platform"
     }
   },

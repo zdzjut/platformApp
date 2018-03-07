@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
   {
+    "id": "cordova-plugin-backbutton.Backbutton",
+    "file": "plugins/cordova-plugin-backbutton/www/Backbutton.js",
+    "pluginId": "cordova-plugin-backbutton",
+    "clobbers": [
+      "navigator.Backbutton"
+    ]
+  },
+  {
     "id": "cordova-plugin-camera.Camera",
     "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
     "pluginId": "cordova-plugin-camera",
@@ -222,14 +230,6 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-backbutton.Backbutton",
-    "file": "plugins/cordova-plugin-backbutton/www/Backbutton.js",
-    "pluginId": "cordova-plugin-backbutton",
-    "clobbers": [
-      "navigator.Backbutton"
-    ]
-  },
-  {
     "id": "cordova-plugin-x-toast.Toast",
     "file": "plugins/cordova-plugin-x-toast/www/Toast.js",
     "pluginId": "cordova-plugin-x-toast",
@@ -241,17 +241,34 @@ module.exports = [
     "id": "cordova-plugin-x-toast.tests",
     "file": "plugins/cordova-plugin-x-toast/test/tests.js",
     "pluginId": "cordova-plugin-x-toast"
+  },
+  {
+    "id": "cordova-plugin-dialogs.notification",
+    "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
+    ]
+  },
+  {
+    "id": "cordova-plugin-dialogs.notification_android",
+    "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
+    ]
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-  "cordova-plugin-whitelist": "1.3.3",
+  "cordova-plugin-backbutton": "0.3.0",
   "cordova-plugin-camera": "4.0.1",
   "cordova-plugin-file": "5.0.0",
   "cordova-plugin-file-transfer": "1.7.0",
-  "cordova-plugin-backbutton": "0.3.0",
-  "cordova-plugin-x-toast": "2.6.0"
+  "cordova-plugin-whitelist": "1.3.3",
+  "cordova-plugin-x-toast": "2.6.0",
+  "cordova-plugin-dialogs": "2.0.1"
 };
 // BOTTOM OF METADATA
 });

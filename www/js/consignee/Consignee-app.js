@@ -8,10 +8,10 @@ function search() {
         type: "post",
         data: {
             'clientId': 163,
-            'keyword': keyword //包含型号和商品名查询
+            'keyword': keyword
         },
-        dataType: "jsonp", //返回JSONP格式的数据，此值固定
-        jsonp: "callback", //回调函数的名字，此值固定
+        dataType: "jsonp",
+        jsonp: "callback",
         timeout: 30000,
         success: function (data) {
             removeMap("keyword");

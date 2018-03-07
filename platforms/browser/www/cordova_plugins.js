@@ -253,6 +253,22 @@ module.exports = [
         "file": "plugins/cordova-plugin-x-toast/test/tests.js",
         "id": "cordova-plugin-x-toast.tests",
         "pluginId": "cordova-plugin-x-toast"
+    },
+    {
+        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+        "id": "cordova-plugin-dialogs.notification",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-dialogs/www/browser/notification.js",
+        "id": "cordova-plugin-dialogs.notification_browser",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -263,7 +279,8 @@ module.exports.metadata =
     "cordova-plugin-file": "5.0.0",
     "cordova-plugin-file-transfer": "1.7.0",
     "cordova-plugin-backbutton": "0.3.0",
-    "cordova-plugin-x-toast": "2.6.0"
+    "cordova-plugin-x-toast": "2.6.0",
+    "cordova-plugin-dialogs": "2.0.1"
 }
 // BOTTOM OF METADATA
 });

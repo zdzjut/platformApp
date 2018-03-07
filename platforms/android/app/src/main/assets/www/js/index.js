@@ -1,3 +1,5 @@
+var url = 'http://122.226.221.26:7088';
+
 var app = {
     initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -6,6 +8,7 @@ var app = {
     onDeviceReady: function () {
         console.log(navigator.camera);
         console.log(navigator.device.capture);
+        console.log(navigator.notification);
         this.receivedEvent();
     },
     receivedEvent: function (id) {
@@ -13,9 +16,7 @@ var app = {
     }
 };
 
-// var url = 'http://192.168.2.77:7087';
-var url = 'http://192.168.1.5:7087';
-// var url = 'http://122.226.221.26:7088';
+
 
 app.initialize();
 
@@ -31,15 +32,14 @@ function check() {
         data: {
             "token": token
         },
-        dataType: "jsonp", //返回JSONP格式的数据，此值固定
-        jsonp: "callback", //回调函数的名字，此值固定
+        dataType: "jsonp",
+        jsonp: "callback",
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
                 jQuery(document).ready(function () {
                     setTimeout('delaySuccess()', 2000);
                 });
-                // location.href = "html/OrderP-app.html";
             } else {
                 jQuery(document).ready(function () {
                     setTimeout('delayFailure()', 2000);

@@ -1,6 +1,8 @@
 var clientId = getMap('clientId');
 var keyword = getMap('keyword');
 
+var dumpUrl = "../../html/commodity/";//跳转页面
+
 function search() {
     var temp = url.replace("-", "/app/listCommodity");
     $.ajax({
@@ -36,7 +38,7 @@ function search() {
 }
 
 function modify(id) {
-    location.href = "../../html/commodity/ModifyGoods-app.html?id=" + id;
+    location.href = dumpUrl + "ModifyGoods-app.html?id=" + id;
 }
 
 //删除此项
@@ -57,7 +59,7 @@ function changeDeleteFlag(id) {
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
-                location.href = "../../html/commodity/Commodity-app.html";
+                location.href = dumpUrl + "Commodity-app.html";
             } else {
                 alert(data.message);
             }
@@ -72,25 +74,26 @@ function changeDeleteFlag(id) {
 function clearKeyword() {
     if ('' !== $(".content").val()) {
         $(".content").val('');
-        location.href = "../../html/commodity/Commodity-app.html";
+        location.href = dumpUrl + "Commodity-app.html";
     }
 }
 
 function detail(id) {
-    location.href = "../../html/commodity/DetailGoods-app.html?id=" + id;
+    location.href = dumpUrl + "DetailGoods-app.html?id=" + id;
 }
 
 //模糊查询
 function clickSearch() {
     getContent();
-    location.href = "../../html/commodity/Commodity-app.html";
+    location.href = dumpUrl + "Commodity-app.html";
 }
 
 //回车键模糊查询
 $("#search-input").keydown(function (e) {
     if (e.keyCode === 13) {
         getContent();
-        location.href = "../../html/commodity/Commodity-app.html";
+        location.href = dumpUrl + "Commodity-app.html";
+
     }
 });
 

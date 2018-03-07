@@ -1,14 +1,15 @@
+var consigneeId = getParam("id");
+
 //显示详情
 function showDetail() {
     //载入国家列表
-    $('#consigneeCountry').empty();
     var temp = url.replace("-", "/app/listCountry");
     $.ajax({
         url: temp,
         type: "post",
         data: {},
-        dataType: "jsonp", //返回JSONP格式的数据，此值固定
-        jsonp: "callback", //回调函数的名字，此值固定
+        dataType: "jsonp",
+        jsonp: "callback",
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
@@ -24,18 +25,16 @@ function showDetail() {
             }
         }
     });
-    sleep(1000);
-    var id = getParam("id");
-    setMap("consigneeId", id);
+    sleep(500);
     temp = url.replace("-", "/app/detailConsignee");
     $.ajax({
         url: temp,
-        type: "POST",
+        type: "post",
         data: {
-            "id": id
+            "id": consigneeId
         },
-        dataType: "jsonp", //返回JSONP格式的数据，此值固定
-        jsonp: "callback", //回调函数的名字，此值固定
+        dataType: "jsonp",
+        jsonp: "callback",
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
@@ -51,7 +50,6 @@ function showDetail() {
                         return false;
                     }
                 });
-                // selectChoose('consigneeCountry', businessConsignee.consigneeCountry);
                 $('#consigneeCity').val(businessConsignee.consigneeCity);
                 $('#consigneeAddress').val(businessConsignee.consigneeAddress);
                 $('#registerNo').val(businessConsignee.registerNo);
@@ -75,7 +73,6 @@ function submitConsignee(wfStatus) {
     if (!confirm("确认提交,请勿多次提交")) {
         return;
     }
-    var consigneeId = getMap("consigneeId");
     //先上传修改后的图片，并关联到收货人
     modifyConsigneePicture(consigneeId);
     var clientId = getMap('clientId');
@@ -95,6 +92,7 @@ function submitConsignee(wfStatus) {
         url: temp,
         type: "post",
         data: {
+            id:consigneeId,
             clientId: clientId,
             financingType: financingType,
             consigneeName: consigneeName,
@@ -108,8 +106,8 @@ function submitConsignee(wfStatus) {
             wfStatus: wfStatus,
             remarks: remarks
         },
-        dataType: "jsonp", //返回JSONP格式的数据，此值固定
-        jsonp: "callback", //回调函数的名字，此值固定
+        dataType: "jsonp",
+        jsonp: "callback",
         timeout: 30000,
         success: function (data) {
             if (data.result === 'success') {
@@ -120,16 +118,6 @@ function submitConsignee(wfStatus) {
         }
     });
 }
-
-
-//点击右上角叉号 去除图片
-function removePictureShow(id) {
-    var image = document.getElementById(id);
-    image.removeAttribute("src");
-    $("#newgoods-section-" + id).css("display", "none");
-
-}
-
 
 function show() {
     showDg();
