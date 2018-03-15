@@ -280,7 +280,8 @@ module.exports.metadata =
     "cordova-plugin-file-transfer": "1.7.0",
     "cordova-plugin-backbutton": "0.3.0",
     "cordova-plugin-x-toast": "2.6.0",
-    "cordova-plugin-dialogs": "2.0.1"
+    "cordova-plugin-dialogs": "2.0.1",
+    "cordova-plugin-geolocation": "4.0.1"
 }
 // BOTTOM OF METADATA
 });

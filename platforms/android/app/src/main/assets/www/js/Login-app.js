@@ -1,7 +1,7 @@
 function login() {
     window.localStorage.clear();
     // var uu = 'http://192.168.1.5:7087';
-var uu = 'http://122.226.221.26:7088';
+    var uu = 'http://122.226.221.26:7088';
     var account = $('#account').val();
     var password = $('#password').val();
     var req_data = {
@@ -9,7 +9,7 @@ var uu = 'http://122.226.221.26:7088';
         "password": password
     };
     $.ajax({
-        url: uu+'/app/login',
+        url: uu + '/app/login',
         type: "POST",
         data: req_data,
         dataType: "jsonp", //返回JSONP格式的数据，此值固定
@@ -29,6 +29,7 @@ var uu = 'http://122.226.221.26:7088';
         }
     });
 }
+
 function logout() {
     if (!confirm("是否退出该账户")) {
         return;
@@ -40,6 +41,8 @@ function logout() {
 function test() {
     dialogConfirm();
 }
+
+
 // 提示框
 function warn() {
     var message = "I am Alert Dialog!";
@@ -52,11 +55,12 @@ function warn() {
         console.log("Alert is Dismissed!");
     }
 }
+
 //当按下 CONFIRM 按钮时，将弹出新对话框。
 function dialogConfirm() {
     var message = "你是猪吗？";
     var title = "question";
-    var buttonLabels = ["YES","NO"];
+    var buttonLabels = ["YES", "NO"];
 
     navigator.notification.confirm(message, confirmCallback, title, buttonLabels);
 
@@ -66,18 +70,19 @@ function dialogConfirm() {
     }
 
 }
+
 //允许用户在对话框输入元素中键入文本。
 function dialogPrompt() {
     var message = "你是猪吗？";
     var title = "question";
-    var buttonLabels = ["YES","NO"];
+    var buttonLabels = ["YES", "NO"];
     var defaultText = "不管，反正你就是！！";
 
     navigator.notification.prompt(message, promptCallback, title, buttonLabels, defaultText);
 
     function promptCallback(result) {
         console.log("You clicked " + result.buttonIndex + " button! \n" +
-            "You entered " +  result.input1);
+            "You entered " + result.input1);
     }
 
 }
@@ -86,4 +91,9 @@ function dialogPrompt() {
 function dialogBeep() {
     var times = 2;
     navigator.notification.beep(times);
+}
+
+function fun() {
+    location.href = "../html/Map.html";
+
 }

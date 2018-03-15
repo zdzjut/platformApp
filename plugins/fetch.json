@@ -54,5 +54,23 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-geolocation@4.0.1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-baidumaplocation": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/aruis/cordova-plugin-baidumaplocation"
+    },
+    "is_top_level": true,
+    "variables": {
+      "ANDROID_KEY": "902TBEMCMchd8c7jiFsSYXaIpKNp0xoP"
+    }
   }
 }

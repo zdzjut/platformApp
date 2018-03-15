@@ -38,6 +38,9 @@
     },
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.gmgyl.platform"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.gmgyl.platform"
     }
   },
   "dependent_plugins": {},
@@ -320,6 +323,7 @@
     "cordova-plugin-file-transfer": "1.7.0",
     "cordova-plugin-backbutton": "0.3.0",
     "cordova-plugin-x-toast": "2.6.0",
-    "cordova-plugin-dialogs": "2.0.1"
+    "cordova-plugin-dialogs": "2.0.1",
+    "cordova-plugin-geolocation": "4.0.1"
   }
 }

@@ -8,6 +8,7 @@ var app = {
     onDeviceReady: function () {
         console.log(navigator.camera);
         console.log(navigator.device.capture);
+        console.log(navigator.notification);
         this.receivedEvent();
     },
     receivedEvent: function (id) {

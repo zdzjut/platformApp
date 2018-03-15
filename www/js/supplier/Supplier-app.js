@@ -34,41 +34,48 @@ function search() {
         }
     });
 }
+
 //
 function modify(id) {
     location.href = "../../html/supplier/ModifySupplier-app.html?id=" + id;
 }
+
 function bank(id) {
     removeMap("complexId");
     location.href = "../../html/bank/BankInformation-app.html?id=" + id;
 }
+
 //删除此项
 function changeDeleteFlag(id) {
-    if (!confirm("确认删除")) {
-        return;
-    }
-    getContent();
-    var temp = url.replace("-", "/app/deleteSupplier");
-    $.ajax({
-        url: temp,
-        type: "post",
-        data: {
-            'id': id
-        },
-        dataType: "jsonp", //返回JSONP格式的数据，此值固定
-        jsonp: "callback", //回调函数的名字，此值固定
-        timeout: 30000,
-        success: function (data) {
-            if (data.result === 'success') {
-                location.href = "../../html/supplier/Supplier-app.html";
-            } else {
-                alert(data.message);
-            }
-        },
-        error: function () {
-            alert("未知错误");
+    navigator.notification.confirm("确认删除", confirmCallback, "提示", ["确认", "取消"]);
+
+    function confirmCallback(buttonIndex) {
+        if (buttonIndex === 2) {
+            return;
         }
-    });
+        getContent();
+        var temp = url.replace("-", "/app/deleteSupplier");
+        $.ajax({
+            url: temp,
+            type: "post",
+            data: {
+                'id': id
+            },
+            dataType: "jsonp", //返回JSONP格式的数据，此值固定
+            jsonp: "callback", //回调函数的名字，此值固定
+            timeout: 30000,
+            success: function (data) {
+                if (data.result === 'success') {
+                    location.href = "../../html/supplier/Supplier-app.html";
+                } else {
+                    alert(data.message);
+                }
+            },
+            error: function () {
+                alert("未知错误");
+            }
+        });
+    }
 }
 
 /*搜索框清空设置*/

@@ -41,9 +41,14 @@ function modify(id) {
     location.href = dumpUrl + "ModifyGoods-app.html?id=" + id;
 }
 
+
+
+
 //删除此项
 function changeDeleteFlag(id) {
-    if (!confirm("确认删除")) {
+    navigator.notification.confirm("确认删除", confirmCallback, "提示", ["确认","取消"]);
+    function confirmCallback(buttonIndex) {
+    if (buttonIndex===2) {
         return;
     }
     getContent();
@@ -68,7 +73,8 @@ function changeDeleteFlag(id) {
             alert("未知错误");
         }
     });
-}
+}    }
+
 
 /*搜索框清空设置*/
 function clearKeyword() {

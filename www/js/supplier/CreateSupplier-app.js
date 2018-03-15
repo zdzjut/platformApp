@@ -23,6 +23,7 @@ $.ajax({
 
 function listCity(id) {
     $('#city').empty();
+    $('#area').empty();
     $('#city').append("<option value=' '> </option>");
     var temp = url.replace("-", "/app/listCity");
     $.ajax({
